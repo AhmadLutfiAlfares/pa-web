@@ -58,14 +58,16 @@ if (isset($_POST['submit'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus&family=Work+Sans&display=swap" rel="stylesheet"/>
-    <title>Journable | Jelajahi</title>
+    <title>Login Penerbit</title>
 </head>
 
 <body>
 <?php
 include('includes/header.php');
 ?>
-
+<div class="title">
+    <h1>Login Penerbit</h1>
+</div>
 <div class="container-form">
     <form action="" method="post">
         <input type="text" name="email" placeholder="Email">

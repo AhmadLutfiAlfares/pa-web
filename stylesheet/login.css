@@ -29,3 +29,8 @@ input {
     border-radius: 10px;
     cursor: pointer;
 }
+
+.title {
+    text-align: center;
+    font-weight: bold;
+}
