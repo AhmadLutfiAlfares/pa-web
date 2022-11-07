@@ -1,0 +1,23 @@
+.container-select {
+    margin: 40px auto;
+    background-color: #F9F2ED;
+    width: 20%;
+    padding: 15px;
+}
+
+.container-select a {
+    text-decoration: none;
+    color: black;
+    font-weight:  bold;
+    font-size: 30px;
+    
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.title {
+    text-align: center;
+}
