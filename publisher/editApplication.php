@@ -1,5 +1,10 @@
 <?php
-require "php/config.php";
+
+/**
+ * @var mysqli $db
+ */
+
+require "../php/config.php";
 $id = $_GET['id'];
 if (isset($id)) {
     $query = mysqli_query(
@@ -25,8 +30,8 @@ if (isset($id)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheet/style.css" />
-    <link rel="stylesheet" href="stylesheet/edit-application.css" />
+    <link rel="stylesheet" href="../stylesheet/style.css" />
+    <link rel="stylesheet" href="../stylesheet/edit-application.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -60,6 +65,7 @@ if (isset($id)) {
                 if ($result['filename']) {
                 ?>
                     <img src="<?= $result['filename'] ?>" alt="" height="100px" width="70px">
+<!--                    TODO : buat delete gambar-->
                     <a href="php/deleteFile.php?id=<?= $result['id_journal_cover']?>">Hapus cover</a>
                 <?php
                 }
@@ -72,7 +78,7 @@ if (isset($id)) {
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="javascript/darkmode.js"></script>
+    <script src="../javascript/darkMode.js"></script>
 </body>
 
 </html>

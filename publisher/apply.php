@@ -1,10 +1,10 @@
 <?php
 session_start();
-include 'php/config.php';
+include '../php/config.php';
 
 // jika belum login arahkan ke halaman login
 if (!isset($_SESSION['login'])) {
-    header('Location: login.php');
+    header('Location: ../loginPenerbit.php');
     exit;
 }
 ?>
@@ -16,7 +16,7 @@ if (!isset($_SESSION['login'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheet/style.css"/>
+    <link rel="stylesheet" href="../stylesheet/style.css"/>
     <link rel="stylesheet" href="stylesheet/apply.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
@@ -55,7 +55,7 @@ include('includes/header.php');
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="javascript/darkMode.js"></script>
+<script src="../javascript/darkMode.js"></script>
 </body>
 
 </html>
