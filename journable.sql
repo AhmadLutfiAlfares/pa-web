@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2022 at 01:54 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.0.19
+-- Waktu pembuatan: 08 Nov 2022 pada 18.37
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `journal`
+-- Struktur dari tabel `journal`
 --
 
 CREATE TABLE `journal` (
@@ -37,7 +37,7 @@ CREATE TABLE `journal` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `journal_cover`
+-- Struktur dari tabel `journal_cover`
 --
 
 CREATE TABLE `journal_cover` (
@@ -47,7 +47,7 @@ CREATE TABLE `journal_cover` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `journal_cover`
+-- Dumping data untuk tabel `journal_cover`
 --
 
 INSERT INTO `journal_cover` (`id`, `id_journal`, `filename`) VALUES
@@ -59,7 +59,7 @@ INSERT INTO `journal_cover` (`id`, `id_journal`, `filename`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `journal_publisher`
+-- Struktur dari tabel `journal_publisher`
 --
 
 CREATE TABLE `journal_publisher` (
@@ -70,7 +70,7 @@ CREATE TABLE `journal_publisher` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `publisher`
+-- Struktur dari tabel `publisher`
 --
 
 CREATE TABLE `publisher` (
@@ -82,7 +82,7 @@ CREATE TABLE `publisher` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `publisher`
+-- Dumping data untuk tabel `publisher`
 --
 
 INSERT INTO `publisher` (`id`, `name`, `url_site`, `email`, `password`) VALUES
@@ -91,64 +91,89 @@ INSERT INTO `publisher` (`id`, `name`, `url_site`, `email`, `password`) VALUES
 (25, 'dafdsefe', 'fads.dfd.fe', 'example@god.com', '$2y$10$Hq2mAMC2xXgxS9WBROuMBOzR1DL3Qcgeq.qZc77k9AvGxl0rmUVR.'),
 (26, 'Wolters Kluwer Medknow Publications', 'wolterspublishing.in', 'humas@wolterspublishing.in', '$2y$10$4cf8mHN.9MdcrX/H50K.neqIujqLZzhIjNvs2NlwCnstneUKH.TGC');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `journal`
+-- Indeks untuk tabel `journal`
 --
 ALTER TABLE `journal`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `journal_cover`
+-- Indeks untuk tabel `journal_cover`
 --
 ALTER TABLE `journal_cover`
   ADD PRIMARY KEY (`id`),
   ADD KEY `foreign_key_id_journal` (`id_journal`);
 
 --
--- Indexes for table `journal_publisher`
+-- Indeks untuk tabel `journal_publisher`
 --
 ALTER TABLE `journal_publisher`
   ADD KEY `journal_id_foreign_key` (`id_journal`),
   ADD KEY `publisher_id_foreign_key` (`id_publisher`);
 
 --
--- Indexes for table `publisher`
+-- Indeks untuk tabel `publisher`
 --
 ALTER TABLE `publisher`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `journal`
+-- AUTO_INCREMENT untuk tabel `journal`
 --
 ALTER TABLE `journal`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `journal_cover`
+-- AUTO_INCREMENT untuk tabel `journal_cover`
 --
 ALTER TABLE `journal_cover`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `publisher`
+-- AUTO_INCREMENT untuk tabel `publisher`
 --
 ALTER TABLE `publisher`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `journal_publisher`
+-- Ketidakleluasaan untuk tabel `journal_publisher`
 --
 ALTER TABLE `journal_publisher`
   ADD CONSTRAINT `journal_id_foreign_key` FOREIGN KEY (`id_journal`) REFERENCES `journal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
