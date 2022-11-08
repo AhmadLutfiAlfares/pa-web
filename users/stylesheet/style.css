@@ -1,0 +1,67 @@
+/*
+putih-abu: F9F2ED
+biru: 3AB0FF
+oren: FFB562
+merah: F87474
+  */
+
+.dark {
+  background-color: #222;
+  color: #e6e6e6;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header-list li {
+  list-style: none;
+  float: right;
+  padding: 33px 20px;
+}
+
+.header-list ul {
+  margin: 0;
+}
+
+.header-list ul li a{
+  text-decoration: none;
+  color: white;
+}
+
+.header {
+  background-color: #3ab0ff;
+  height: 90px;
+  color: white;
+}
+
+.header-logo {
+  font-family: "Gentium Plus", serif;
+  font-weight: 700;
+  font-size: 50px;
+  float: left;
+  padding-left: 35px;
+}
+
+.change {
+  cursor: pointer;
+  border: 1px solid #555;
+  border-radius: 40%;
+  width: 20px;
+  text-align: center;
+  padding: 5px;
+  margin-left: 8px;
+}
+
+.footer {
+  padding-top: 10px;
+  background-color: #f9f2ed;
+  height: 270px;
+}
+
+.footer-list li {
+  list-style: none;
+  padding: 10px 20px;
+}

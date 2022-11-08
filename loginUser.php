@@ -75,7 +75,7 @@ include('includes/header.php');
         <input type="password" name="password" placeholder="Password">
         <input type="submit" name="submit" value="submit">
     </form>
-<p>Belum punya akun? <a href="register.php">Sign Up Sekarang</a></p>
+<p>Belum punya akun? <a href="users/registerUser.php">Sign Up Sekarang</a></p>
 </div>
 
 
