@@ -7,9 +7,9 @@
 session_start();
 require 'php/config.php';
 
-// jika user sudah login
+// jika penerbit sudah login
 if (isset($_SESSION['login'])) {
-    header('Location: index.php');
+    header('Location: publisher/myJournal.php');
     exit;
 }
 
@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
         echo "
             <script>
             alert('Login berhasil');
-            document.location.href = 'index.php';
+            document.location.href = 'publisher/index.php';
             </script>";
     } else {
         echo "
@@ -79,7 +79,7 @@ include('includes/header.php');
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="javascript/darkmode.js"></script>
+<script src="javascript/darkMode.js"></script>
 </body>
 
 </html>
