@@ -9,30 +9,31 @@ require 'php/config.php';
 
 // jika user sudah login
 if (isset($_SESSION['login'])) {
-    header('Location: index.php');
+    header('Location: users/halamanUser.php');
     exit;
 }
 
 if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
+    $user = $_POST['user'];
     $password = $_POST['password'];
 
     $query = mysqli_query(
         $db,
-        "SELECT * FROM publisher WHERE email='$email'"
+        "SELECT * FROM user WHERE email = '$user' OR username = '$user'"
     );
 
     $result = mysqli_fetch_assoc($query);
+    $username = $result['username'];
 
     if (password_verify($password, $result['password'])) {
         // set session
         $_SESSION['login'] = true;
         // simpan id publisher untuk dipakai di create.php
-        $_SESSION['pub_id'] = $result['id'];
+        $_SESSION['user_id'] = $result['id'];
         echo "
             <script>
-            alert('Login berhasil');
-            document.location.href = 'index.php';
+            alert('Login berhasil! Selamat datang $username');
+            document.location.href = 'users/halamanUser.php';
             </script>";
     } else {
         echo "
@@ -71,11 +72,11 @@ include('includes/header.php');
 
 <div class="container-form">
     <form action="" method="post">
-        <input type="text" name="email" placeholder="Email">
+        <input type="text" name="user" placeholder="Email Atau Username">
         <input type="password" name="password" placeholder="Password">
         <input type="submit" name="submit" value="submit">
     </form>
-<p>Belum punya akun? <a href="users/registerUser.php">Sign Up Sekarang</a></p>
+<p>Belum punya akun? <a href="users/register.php">Sign Up Sekarang</a></p>
 </div>
 
 

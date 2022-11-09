@@ -17,7 +17,7 @@
             ?>
             <li>Dark mode: <span class="change">OFF</span></li>
             <li><a href="journalExplorer.php">Pencarian</a></li>
-            <li><a href="">Bookmark</a></li>
+            <li><a href="bookmark.php">Bookmark</a></li>
             <li><a href="browse.php">Jelajahi</a></li>
         </ul>
     </div>

@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus&family=Work+Sans&display=swap" rel="stylesheet"/>
-    <title>Journable | Jelajahi</title>
+    <title>Bookmark</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@ include('includes/header.php');
 
 <div class="all-container">
 
-    <h2>Jelajahi Jurnal</h2>
+    <h2>Bookmark</h2>
 
     <main>
         <ul class="search-results">
