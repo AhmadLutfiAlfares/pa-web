@@ -52,8 +52,7 @@ include('includes/header.php');
                             publisher.name
                     FROM journal
                     LEFT JOIN journal_cover jc ON journal.id = jc.id_journal
-                    JOIN journal_publisher jp ON journal.id = jp.id_journal
-                    JOIN publisher ON jp.id_publisher = publisher.id
+                    JOIN publisher ON journal.id_publisher = publisher.id
                     WHERE title LIKE '%$search%' AND publisher.id = $idPublisher"
                 );
             } else { // jika tidak mencari
@@ -67,8 +66,7 @@ include('includes/header.php');
                             publisher.name
                     FROM journal
                     LEFT JOIN journal_cover jc ON journal.id = jc.id_journal
-                    JOIN journal_publisher jp ON journal.id = jp.id_journal
-                    JOIN publisher ON jp.id_publisher = publisher.id
+                    JOIN publisher ON journal.id_publisher = publisher.id
                     WHERE publisher.id = $idPublisher"
                 );
             }

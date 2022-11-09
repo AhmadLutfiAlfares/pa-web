@@ -16,21 +16,12 @@ if (isset($_POST['submit'])) {
     $query = mysqli_query(
         $db,
         "INSERT INTO
-            journal(title, published_date, issn)
+            journal(title, published_date, issn, id_publisher)
         VALUES
-            ('$title', $publishedDate, '$issn')"
+            ('$title', $publishedDate, '$issn', $publisherId)"
     );
 
-    // masukkan relasi jurnal dengan penerbit yang sedang login saat ini
     $journalId = mysqli_insert_id($db); // dapatkan id jurnal yang baru ditambahkan
-    $relation_query = mysqli_query(
-        $db,
-        "INSERT INTO
-            journal_publisher(id_journal, id_publisher)
-        VALUES
-            ($journalId, $publisherId)"
-    );
-
     if (!empty($_FILES['cover']['name'])) {
         $target_dir = "uploads/";
         $imageFileType = strtolower(pathinfo($_FILES['cover']['name'], PATHINFO_EXTENSION));
