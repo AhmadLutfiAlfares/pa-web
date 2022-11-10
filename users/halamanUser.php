@@ -43,19 +43,19 @@
       </div>
       <div class="contents">
         <div class="contents-item">
-          <img src="images/teknologi-informasi.png" alt="" />
+          <img src="../images/teknologi-informasi.png" alt="" />
           <p>Teknologi Informasi</p>
         </div>
         <div class="contents-item ">
-          <img src="images/kesehatan-dan-farmasi.png" alt="" />
+          <img src="../images/kesehatan-dan-farmasi.png" alt="" />
           <p>Kesehatan dan Farmasi</p>
         </div>
         <div class="contents-item hidden">
-          <img src="images/agrikultur.png" alt="" />
+          <img src="../images/agrikultur.png" alt="" />
           <p>Agrikultur</p>
         </div>
         <div class="contents-item hidden">
-          <img src="images/sosial-humaniora.png" alt="" />
+          <img src="../images/sosial-humaniora.png" alt="" />
           <p>Sosial Humaniora</p>
         </div>
       </div>
