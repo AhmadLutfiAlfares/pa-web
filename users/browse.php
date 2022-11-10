@@ -34,8 +34,7 @@ include('includes/header.php');
     <main>
         <ul class="search-results">
             <?php
-            require "php/config.php";
-
+            require "../php/config.php";
 
             // jika memasukkan kata kunci pencarian
             if (isset($_GET['submit'])) {
@@ -67,13 +66,14 @@ include('includes/header.php');
                     LEFT JOIN journal_cover ON journal.id = journal_cover.id_journal"
                 );
             }
-            while ($row = mysqli_fetch_assoc($query)) {
-                ?>
 
-                <?php
-                if (empty($row)) {
-                    echo "Belum ada jurnal favorit";
-                }
+            // untuk mengecek kalau datanya kosong
+            $cek = mysqli_num_rows($query);
+            if (empty($cek)) {
+                echo "Belum ada jurnal favorit";
+            }
+
+            while ($row = mysqli_fetch_assoc($query)) {
                 ?>
                 <li class="card">
                     <img src="<?= $row['filename'] ?>" alt="Cover <?= $row['title'] ?>" height="200px">
@@ -92,7 +92,7 @@ include('includes/header.php');
                                     class="fa-sharp fa-solid fa-trash" style="display: inline-block;"></i></a>
                     </aside>
                 </li>
-                <?php
+            <?php
             }
             ?>
         </ul>
