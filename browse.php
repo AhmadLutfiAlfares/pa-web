@@ -66,6 +66,13 @@
                     LEFT JOIN journal_cover ON journal.id = journal_cover.id_journal"
                     );
                 }
+
+                // jika data kosong
+                $cek = mysqli_num_rows($query);
+                if (empty($cek)) {
+                    echo "Belum ada jurnal";
+                }
+
                 while ($row = mysqli_fetch_assoc($query)) {
                 ?>
 
