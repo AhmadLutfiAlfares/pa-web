@@ -49,6 +49,9 @@ include('includes/header.php');
             <!-- cover jurnal -->
             <label for="cover">Cover Jurnal</label>
             <input type="file" id="cover" name="cover">
+            <!-- file jurnal -->
+            <label for="file-jurnal">Soft File Jurnal</label>
+            <input type="file" name="file-jurnal">
             <!-- submit -->
             <input type="submit" name="submit" value="Apply">
         </form>
