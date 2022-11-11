@@ -48,10 +48,10 @@ include('includes/header.php');
                             title,
                             issn,
                             published_date,
-                            jc.filename,
+                            cover_filename,
+                            journal_filename,
                             publisher.name
                     FROM journal
-                    LEFT JOIN journal_cover jc ON journal.id = jc.id_journal
                     JOIN publisher ON journal.id_publisher = publisher.id
                     WHERE title LIKE '%$search%' AND publisher.id = $idPublisher"
                 );
@@ -62,10 +62,10 @@ include('includes/header.php');
                             title,
                             issn,
                             published_date,
-                            jc.filename,
+                            cover_filename,
+                            journal_filename,
                             publisher.name
                     FROM journal
-                    LEFT JOIN journal_cover jc ON journal.id = jc.id_journal
                     JOIN publisher ON journal.id_publisher = publisher.id
                     WHERE publisher.id = $idPublisher"
                 );
@@ -73,7 +73,28 @@ include('includes/header.php');
             while ($row = mysqli_fetch_assoc($query)) {
                 ?>
                 <li class="card">
-                    <img src="<?= $row['filename'] ?>" alt="Cover <?= $row['title'] ?>" height="200px">
+                    <?php
+                    $journal_filename = $row['journal_filename'];
+                    $cover_filename = $row['cover_filename'];
+                    // jika tidak ada file nya, ganti link nya ke #
+                    if (!$journal_filename) {
+                        $journal_filename = '#';
+                    }
+                    // jika ada covernya, tampilin
+                    if ($cover_filename) {
+                        $title = $row['title'];
+                        echo "<a href='$journal_filename'>
+                            <img src = '$cover_filename' alt = 'Cover $title' height = '200px'>
+                        </a>";
+                        // jika tidak ada bikin kotak dengan icon download
+                    } else {
+                        echo "<a href='$journal_filename'>
+                            <div style='height: 200px; width: 146px'>
+                                <i class='fa-solid fa-file-arrow-down'></i>
+                            </div>
+                        </a>";
+                    }
+                    ?>
                     <div class="search-result-main">
                         <h3><?= $row['title'] ?></h3>
                         <p><?= $row['name'] ?></p>
