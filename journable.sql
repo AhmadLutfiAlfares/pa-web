@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2022 at 02:29 AM
+-- Generation Time: Nov 11, 2022 at 04:36 PM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- PHP Version: 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,30 +44,18 @@ CREATE TABLE `journal` (
   `id_publisher` int(10) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
   `published_date` year(4) NOT NULL,
-  `issn` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `journal_cover`
---
-
-CREATE TABLE `journal_cover` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `id_journal` int(10) UNSIGNED NOT NULL,
-  `filename` varchar(64) NOT NULL
+  `issn` varchar(20) NOT NULL,
+  `cover_filename` varchar(255) DEFAULT NULL,
+  `journal_filename` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `journal_cover`
+-- Dumping data for table `journal`
 --
 
-INSERT INTO `journal_cover` (`id`, `id_journal`, `filename`) VALUES
-(15, 21, ''),
-(16, 22, 'uploads/Acta_Biochimica_Polonica_cover.jpg'),
-(17, 23, 'uploads/Indian_Journal_of_Anaesthesia_cover.jpeg'),
-(18, 24, 'uploads/Indian_Journal_of_Psychiatry_cover.jpeg');
+INSERT INTO `journal` (`id`, `id_publisher`, `title`, `published_date`, `issn`, `cover_filename`, `journal_filename`) VALUES
+(26, 26, 'The Journal of Nursing Research', 1923, '21-21-11', NULL, NULL),
+(29, 26, 'Egyptian Journal of Critical Care Medicine', 2012, '21-321031-21', 'uploads/cover/Egyptian_Journal_of_Critical_Care_Medicine_cover.jpg', 'uploads/file-jurnal/Egyptian_Journal_of_Critical_Care_Medicine_file-jurnal.pdf');
 
 -- --------------------------------------------------------
 
@@ -126,13 +114,6 @@ ALTER TABLE `journal`
   ADD KEY `publisher_fk` (`id_publisher`);
 
 --
--- Indexes for table `journal_cover`
---
-ALTER TABLE `journal_cover`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `foreign_key_id_journal` (`id_journal`);
-
---
 -- Indexes for table `publisher`
 --
 ALTER TABLE `publisher`
@@ -158,19 +139,13 @@ ALTER TABLE `bookmark`
 -- AUTO_INCREMENT for table `journal`
 --
 ALTER TABLE `journal`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
---
--- AUTO_INCREMENT for table `journal_cover`
---
-ALTER TABLE `journal_cover`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `publisher`
 --
 ALTER TABLE `publisher`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `user`
