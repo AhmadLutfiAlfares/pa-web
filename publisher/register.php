@@ -71,6 +71,9 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
+    <?php
+    include('includes/header.php');
+    ?>
     <div class="container-form">
         <form action="register.php" method="post">
             <label for="name">Nama Institusi</label>
