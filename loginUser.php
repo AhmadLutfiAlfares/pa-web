@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
     if (password_verify($password, $result['password'])) {
         // set session
         $_SESSION['login'] = true;
-        // simpan id publisher untuk dipakai di create.php
+        // simpan id user untuk dipakai di bookmark.php
         $_SESSION['user_id'] = $result['id'];
         echo "
             <script>
