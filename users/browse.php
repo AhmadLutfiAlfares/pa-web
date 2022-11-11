@@ -3,7 +3,12 @@
 /**
  * @var mysqli $db
  */
+
+session_start();
+$idUser = $_SESSION['user_id'];
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,11 +49,11 @@
                             title,
                             issn,
                             published_date,
-                            publisher.name,
-                            journal_cover.filename
+                            cover_filename,
+                            journal_filename,
+                            publisher.name
                     FROM journal
                     JOIN publisher ON journal.id_publisher = publisher.id
-                    LEFT JOIN journal_cover ON journal.id = journal_cover.id_journal
                     WHERE title LIKE '%$search%'"
                     );
                 } else { // jika tidak mencari
@@ -58,11 +63,11 @@
                             title,
                             issn,
                             published_date,
-                            publisher.name,
-                            journal_cover.filename
+                            cover_filename,
+                            journal_filename,
+                            publisher.name
                     FROM journal
-                    JOIN publisher ON journal.id_publisher = publisher.id
-                    LEFT JOIN journal_cover ON journal.id = journal_cover.id_journal"
+                    JOIN publisher ON journal.id_publisher = publisher.id"
                     );
                 }
 
@@ -75,23 +80,46 @@
                 while ($row = mysqli_fetch_assoc($query)) {
                 ?>
                     <li class="card">
-                        <img src="<?= $row['filename'] ?>" alt="Cover <?= $row['title'] ?>" height="200px">
-                        <div class="search-result-main">
-                            <h3><?= $row['title'] ?></h3>
-                            <p><?= $row['name'] ?></p>
-                            <br>
-                            <p><i>ISSN </i><?= $row['issn'] ?></p>
-                        </div>
-                        <aside class="search-result-aside">
-                            <p>Published on <?= $row['published_date'] ?></p>
-                            <br>
-                            <a href="editApplication.php?id=<?= $row['id'] ?>" style="text-decoration: none; color: black;"><i class="fa-sharp fa-solid fa-pen-to-square" style="display: inline-block;"></i></a>
-                            <a href="php/delete.php?id=<?= $row['id'] ?>" style="text-decoration: none; color: black;"><i class="fa-sharp fa-solid fa-trash" style="display: inline-block;"></i></a>
-                        </aside>
-                    </li>
+                    <?php
+                    $journal_filename = $row['journal_filename'];
+                    $cover_filename = $row['cover_filename'];
+                    // jika tidak ada file nya, ganti link nya ke #
+                    if (!$journal_filename) {
+                        $journal_filename = '#';
+                    }
+                    // jika ada covernya, tampilin
+                    if ($cover_filename) {
+                        $title = $row['title'];
+                        echo "<a href='../publisher/$journal_filename'>
+                            <img src = '../publisher/$cover_filename' alt = 'Cover $title' height = '200px'>
+                        </a>";
+                        // jika tidak ada bikin kotak dengan icon download
+                    } else {
+                        echo "<a href='$journal_filename'>
+                            <div style='height: 200px; width: 146px'>
+                                <i class='fa-solid fa-file-arrow-down'></i>
+                            </div>
+                        </a>";
+                    }
+                    ?>
+                    <div class="search-result-main">
+                        <h3><?= $row['title'] ?></h3>
+                        <p><?= $row['name'] ?></p>
+                        <br>
+                        <p><i>ISSN </i><?= $row['issn'] ?></p>
+                    </div>
+                    <aside class="search-result-aside">
+                        <p>Published on <?= $row['published_date'] ?></p>
+                        <br>
+                        <a href="editApplication.php?id=<?= $row['id'] ?>" style="text-decoration: none; color: black;"><i
+                                    class="fa-sharp fa-solid fa-pen-to-square" style="display: inline-block;"></i></a>
+                        <a href="php/delete.php?id=<?= $row['id'] ?>" style="text-decoration: none; color: black;"><i
+                                    class="fa-sharp fa-solid fa-trash" style="display: inline-block;"></i></a>
+                    </aside>
+                </li>
                 <?php
-                }
-                ?>
+            }
+            ?>
             </ul>
         </main>
 
