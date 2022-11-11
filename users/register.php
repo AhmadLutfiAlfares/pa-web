@@ -67,23 +67,26 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-<div class="container-form">
-    <form action="" method="post">
-        <label for="name">Username</label>
-        <input type="text" name="username" placeholder="Username">
+    <?php
+    include('includes/header.php');
+    ?>
+    <div class="container-form">
+        <form action="" method="post">
+            <label for="name">Username</label>
+            <input type="text" name="username" placeholder="Username">
 
-        <label for="email">Email</label>
-        <input type="email" name="email" placeholder="example@domain.org">
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="example@domain.org">
 
-        <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Password">
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Password">
 
-        <label for="konfir-password">Konfirmasi Password</label>
-        <input type="password" name="konfir-password">
-        
-        <input type="submit" name="submit" value="submit">
-    </form>
-</div>
+            <label for="konfir-password">Konfirmasi Password</label>
+            <input type="password" name="konfir-password">
+
+            <input type="submit" name="submit" value="submit">
+        </form>
+    </div>
 
     <p>Sudah punya akun? <a href="../loginUser.php">Login Sekarang</a></p>
 
