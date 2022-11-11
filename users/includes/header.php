@@ -1,7 +1,11 @@
 <div class="header">
     <div class="header-logo">Journable</div>
-    <div class="header-list">
+    <div class="header-list" id="headerId">
         <ul>
+            <li><a href="browse.php">Jelajahi</a></li>
+            <li><a href="bookmark.php">Bookmark</a></li>
+            <li><a href="journalExplorer.php">Pencarian</a></li>
+            <li>Dark mode: <span class="change">OFF</span></li>
             <?php
             // jika session belum di start
             if (!isset($_SESSION)) {
@@ -15,10 +19,8 @@
                 echo "<li><a href='pilihLogin.php'>Masuk</a></li>";
             }
             ?>
-            <li>Dark mode: <span class="change">OFF</span></li>
-            <li><a href="journalExplorer.php">Pencarian</a></li>
-            <li><a href="bookmark.php">Bookmark</a></li>
-            <li><a href="browse.php">Jelajahi</a></li>
         </ul>
     </div>
+    <img class="ham-menu" src="../images/icons/hamburger-menu.png" onclick="toggleMenu()">
 </div>
+<script src="../javascript/hamburgerMenu.js"></script>
