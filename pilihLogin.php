@@ -33,7 +33,8 @@ include('includes/header.php');
         <a href="loginUser.php">User</a>
     </div>
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="javascript/darkMode.js"></script>
 </body>
 
 </html>
