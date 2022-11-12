@@ -42,7 +42,14 @@ include('includes/header.php');
                 $search = $_GET['search'];
                 $query = mysqli_query(
                     $db,
-                    "SELECT *
+                    "SELECT journal.id,
+                            title,
+                            issn,
+                            published_date,
+                            last_updated,
+                            cover_filename,
+                            journal_filename,
+                            publisher.name
                     FROM journal
                     JOIN publisher ON journal.id_publisher = publisher.id
                     WHERE title LIKE '%$search%' AND publisher.id = $idPublisher"
@@ -50,7 +57,14 @@ include('includes/header.php');
             } else { // jika tidak mencari
                 $query = mysqli_query(
                     $db,
-                    "SELECT *
+                    "SELECT journal.id,
+                            title,
+                            issn,
+                            published_date,
+                            last_updated,
+                            cover_filename,
+                            journal_filename,
+                            publisher.name
                     FROM journal
                     JOIN publisher ON journal.id_publisher = publisher.id
                     WHERE publisher.id = $idPublisher"
