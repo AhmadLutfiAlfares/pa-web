@@ -1,10 +1,12 @@
 .apply-container {
-    padding: 35px;
+    padding: 5vw;
+    width: 90%;
+    justify-items: center;
 }
 
 .form-container {
     background-color: #F9F2ED;
-    padding: 48px 64px;
+    padding: 5%;
     display: flex;
     flex-direction: column;
 }
@@ -20,7 +22,7 @@
 }
 
 .input-area {
-    height: 54px;
+    height: 6vh;
     padding: 10px 24px;
     border: 0;
     font-family: "Work Sans", sans-serif;
@@ -85,4 +87,30 @@
     border: none;
     color: #F9F2ED;
     border-radius: 10px;
+}
+
+@media only screen and (max-width: 900px) {
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+    }
+
+    .apply-container h1{
+        margin-top: 10vh;
+        font-size: 3vh;
+    }
+
+    .apply-container p {
+        font-size: 2vh;
+    }
+
+    .form-container {
+        width: 90%;
+        overflow-x: hidden;
+    }
+
+    .input-area {
+        width: 85%;
+    }
 }
