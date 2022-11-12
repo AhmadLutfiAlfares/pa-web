@@ -14,12 +14,12 @@ if (isset($_SESSION['login'])) {
 }
 
 if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
+    $email_username = $_POST['email-username'];
     $password = $_POST['password'];
 
     $query = mysqli_query(
         $db,
-        "SELECT * FROM publisher WHERE email='$email'"
+        "SELECT * FROM publisher WHERE email='$email_username' OR username='$email_username'"
     );
 
     $result = mysqli_fetch_assoc($query);
@@ -70,7 +70,7 @@ include('includes/header.php');
 </div>
 <div class="container-form">
     <form action="" method="post">
-        <input type="text" name="email" placeholder="Email">
+        <input type="text" name="email-username" placeholder="Email atau username">
         <input type="password" name="password" placeholder="Password">
         <input type="submit" name="submit" value="submit">
     </form>

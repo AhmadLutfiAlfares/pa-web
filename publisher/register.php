@@ -8,19 +8,19 @@ require '../php/config.php';
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $website = $_POST['website'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
     $konfirmasi = $_POST['konfir-password'];
 
     // cek apakah email sudah dipakai
     $query = mysqli_query(
         $db,
-        "SELECT * FROM publisher WHERE email = '$email'"
+        "SELECT * FROM publisher WHERE email = '$email' OR username = '$username'"
     );
     if (mysqli_fetch_row($query)) {
         echo "
         <script>
-            alert('Email sudah digunakan');
+            alert('Email atau username sudah digunakan');
         </script>";
     } else {
         if ($password == $konfirmasi) {
@@ -28,9 +28,9 @@ if (isset($_POST['submit'])) {
             $insert_query = mysqli_query(
                 $db,
                 "INSERT INTO
-                    publisher (name, url_site, email, password)
+                    publisher (name, username, email, password)
                 VALUES
-                    ('$name', '$website', '$email', '$password')"
+                    ('$name', '$username', '$email', '$password')"
             );
             if ($insert_query) {
                 echo "
@@ -78,8 +78,8 @@ if (isset($_POST['submit'])) {
         <form action="register.php" method="post">
             <label for="name">Nama Institusi</label>
             <input type="text" name="name" placeholder="Nama Institusi">
-            <label for="website">Situs Web</label>
-            <input type="text" name="website" placeholder="Website">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="username">
             <label for="email">Email</label>
             <input type="email" name="email" placeholder="example@domain.org">
             <label for="password">Password</label>

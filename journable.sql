@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2022 at 04:36 PM
+-- Generation Time: Nov 12, 2022 at 09:57 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -54,8 +54,7 @@ CREATE TABLE `journal` (
 --
 
 INSERT INTO `journal` (`id`, `id_publisher`, `title`, `published_date`, `issn`, `cover_filename`, `journal_filename`) VALUES
-(26, 26, 'The Journal of Nursing Research', 1923, '21-21-11', NULL, NULL),
-(29, 26, 'Egyptian Journal of Critical Care Medicine', 2012, '21-321031-21', 'uploads/cover/Egyptian_Journal_of_Critical_Care_Medicine_cover.jpg', 'uploads/file-jurnal/Egyptian_Journal_of_Critical_Care_Medicine_file-jurnal.pdf');
+(29, 26, 'Egyptian Journal of Critical Care Medicine', 2012, '21-321031-21', NULL, 'uploads/file-jurnal/Egyptian_Journal_of_Critical_Care_Medicine_file-jurnal.pdf');
 
 -- --------------------------------------------------------
 
@@ -66,20 +65,21 @@ INSERT INTO `journal` (`id`, `id_publisher`, `title`, `published_date`, `issn`, 
 CREATE TABLE `publisher` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(100) NOT NULL,
-  `url_site` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `username` varchar(64) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `publisher`
 --
 
-INSERT INTO `publisher` (`id`, `name`, `url_site`, `email`, `password`) VALUES
-(1, 'Universitas Mulawarman', '', '', ''),
-(4, 'Pustaka', '', '', ''),
-(25, 'dafdsefe', 'fads.dfd.fe', 'example@god.com', '$2y$10$Hq2mAMC2xXgxS9WBROuMBOzR1DL3Qcgeq.qZc77k9AvGxl0rmUVR.'),
-(26, 'Wolters Kluwer Medknow Publications', 'wolterspublishing.in', 'humas@wolterspublishing.in', '$2y$10$4cf8mHN.9MdcrX/H50K.neqIujqLZzhIjNvs2NlwCnstneUKH.TGC');
+INSERT INTO `publisher` (`id`, `name`, `email`, `password`, `username`) VALUES
+(1, 'Universitas Mulawarman', '', '', NULL),
+(4, 'Pustaka', '', '', NULL),
+(25, 'dafdsefe', 'example@god.com', '$2y$10$Hq2mAMC2xXgxS9WBROuMBOzR1DL3Qcgeq.qZc77k9AvGxl0rmUVR.', NULL),
+(26, 'Wolters Kluwer Medknow Publications', 'humas@wolterspublishing.in', '$2y$10$4cf8mHN.9MdcrX/H50K.neqIujqLZzhIjNvs2NlwCnstneUKH.TGC', NULL),
+(28, 'Magnolia Press', 'humas@magnolia.co', '$2y$10$7gOTk3Gnd5vUL5oapbEzEeGwlXP.ml6JLBhA1abrxwIWY0CW.ST/e', 'magnolia');
 
 -- --------------------------------------------------------
 
@@ -145,7 +145,7 @@ ALTER TABLE `journal`
 -- AUTO_INCREMENT for table `publisher`
 --
 ALTER TABLE `publisher`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `user`
