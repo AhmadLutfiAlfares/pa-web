@@ -5,6 +5,32 @@
  */
 
 require "../../php/config.php";
+
+function file_upload($title, $db, $journal_id, $kind): void
+{
+    $table = "cover_filename";
+    if ($kind !== "cover") {
+        $kind = "file-jurnal";
+        $table = "journal_filename";
+    }
+    $target_dir = "uploads/" . $kind . "/";
+    $file_type = strtolower(pathinfo($_FILES[$kind]['name'], PATHINFO_EXTENSION));
+    $target_file = $target_dir . str_replace(" ", "_", $title) . "_" . $kind . "." . $file_type;
+    $tmp = $_FILES[$kind]['tmp_name'];
+
+    // proses pindahkan file
+    if (move_uploaded_file($tmp, '../' . $target_file)) {
+        $query = mysqli_query(
+            $db,
+            "UPDATE journal
+                SET $table = '$target_file'
+                WHERE id = $journal_id"
+        );
+    } else {
+        echo "Upload file gagal";
+    }
+}
+
 if (isset($_POST['submit'])) {
     $id = $_POST['id'];
     $title = $_POST['title'];
@@ -24,30 +50,15 @@ if (isset($_POST['submit'])) {
 
     // jika upload cover lagi
     if (!empty($_FILES['cover']['name'])) {
-        $target_dir = "uploads/cover/";
-        $file_type = strtolower(pathinfo($_FILES['cover']['name'], PATHINFO_EXTENSION));
-        $target_file = $target_dir . str_replace(" ", "_", $title) . "_cover." . $file_type;
-
-        // proses pindahkan file
-        $tmp = $_FILES['cover']['tmp_name'];
-        if (move_uploaded_file($tmp, '../' . $target_file)) {
-            $image_query = mysqli_query(
-                $db,
-                "UPDATE journal
-                SET cover_filename='$target_file'
-                WHERE id=$id"
-            );
-            if ($image_query) {
-                header("Location:../myJournal.php");
-            } else {
-                echo "Update gambar gagal";
-            }
-        }
+        file_upload($title, $db, $id, 'cover');
     }
 
-    if ($query) {
-        header("Location:../myJournal.php");
-    } else {
-        echo "Update jurnal gagal";
+    // jika upload jurnal lagi
+    if (!empty($_FILES['file-jurnal']['name'])) {
+        file_upload($title, $db, $id, 'file-jurnal');
     }
+
+    header("Location:../myJournal.php");
+} else {
+    echo "Update jurnal gagal";
 }
