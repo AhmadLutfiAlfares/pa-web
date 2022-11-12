@@ -8,10 +8,6 @@ session_start();
 require 'php/config.php';
 
 // jika user sudah login
-if (isset($_SESSION['login'])) {
-    header('Location: users/halamanUser.php');
-    exit;
-}
 
 if (isset($_POST['submit'])) {
     $user = $_POST['user'];
@@ -29,7 +25,7 @@ if (isset($_POST['submit'])) {
         // set session
         $_SESSION['login'] = true;
         // simpan id user untuk dipakai di bookmark.php
-        $_SESSION['user_id'] = $result['id'];
+        $_SESSION['id_user'] = $result['id'];
         echo "
             <script>
             alert('Login berhasil! Selamat datang $username');
