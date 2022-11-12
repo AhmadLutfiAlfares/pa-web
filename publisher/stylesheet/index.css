@@ -1,0 +1,23 @@
+.welcome {
+    font-size: 3vh;
+}
+
+.pIndex {
+    font-size: 3vh;
+}
+
+@media only screen and (max-width: 900px) {
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+    }
+
+    .welcome {
+        font-size: 3vh;
+        margin-top: 13vh;
+    }
+
+}
