@@ -6,22 +6,17 @@
 
 require "../../php/config.php";
 
-// $bookmarkId = $_GET['id'];
-$bookmarkId = mysqli_query(
-                $db,
-                "SELECT * FROM bookmark"
-            );
-$resultId = $_GET['id'];
+$bookmarkId = $_GET['id'];
+
 if (isset($bookmarkId)) {
     $query = mysqli_query(
         $db,
         "DELETE FROM bookmark
-        WHERE id_journal = $resultId"
+        WHERE id = $bookmarkId"
     );
 
     if ($query) {
-        // header("Location: bookmark.php");
-        echo "Delete berhasil";
+        header("Location: ../bookmark.php");
     } else {
         echo "Delete gagal";
     }
