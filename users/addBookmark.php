@@ -11,10 +11,6 @@ if (!isset($_SESSION['login'])) {
     exit;
 }
 
-// if (isset($_SESSION['login'])) {
-//     header("Location: users/halamanUser.php");
-// }
-
 $idUser = $_SESSION['id_user'];
 
 if (isset($idUser)) {
@@ -32,7 +28,6 @@ if (isset($idUser)) {
             alert('Tambahkan bookmark berhasil!');
             document.location.href = 'browse.php';
             </script>";
-        // header("Location: browse.php");
     } else {
         echo "Tambahkan Bookmark gagal";
     }
