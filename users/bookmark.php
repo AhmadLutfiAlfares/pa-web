@@ -65,7 +65,8 @@ $idUser = $_SESSION['id_user']
                         published_date,
                         cover_filename,
                         journal_filename,
-                        publisher.name
+                        publisher.name,
+                        bookmark.id AS id_bookmark
                         FROM journal
                         INNER JOIN publisher ON journal.id_publisher = publisher.id
                         INNER JOIN bookmark ON journal.id = bookmark.id_journal
@@ -115,7 +116,7 @@ $idUser = $_SESSION['id_user']
                     <aside class="search-result-aside">
                         <p>Published on <?= $row['published_date'] ?></p>
                         <br>
-                        <a href="php/delete.php? id=<?= $row['id'] ?>" style="text-decoration: none; color: black;"><i
+                        <a href="php/delete.php? id=<?= $row['id_bookmark'] ?>" style="text-decoration: none; color: black;"><i
                                     class="fa-sharp fa-solid fa-trash" style="display: inline-block;"></i></a>
                     </aside>
                 </li>
