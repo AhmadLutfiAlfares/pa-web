@@ -82,13 +82,13 @@ if (isset($_POST['submit'])) {
             <input type="password" name="password" placeholder="Password">
 
             <label for="konfir-password">Konfirmasi Password</label>
-            <input type="password" name="konfir-password">
+            <input type="password" name="konfir-password" placeholder="Konfirmasi Password">
 
             <input type="submit" name="submit" value="submit">
         </form>
+        <p>Sudah punya akun? <a href="../loginUser.php">Login Sekarang</a></p>
     </div>
 
-    <p>Sudah punya akun? <a href="../loginUser.php">Login Sekarang</a></p>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="../javascript/darkmode.js"></script>
