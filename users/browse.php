@@ -5,7 +5,10 @@
  */
 
 session_start();
-$idUser = $_SESSION['user_id'];
+if (!isset($_SESSION['login'])) {
+    header("Location: ../loginUser.php");
+    exit;
+}
 ?>
 
 
@@ -111,10 +114,9 @@ $idUser = $_SESSION['user_id'];
                     <aside class="search-result-aside">
                         <p>Published on <?= $row['published_date'] ?></p>
                         <br>
-                        <a href="editApplication.php?id=<?= $row['id'] ?>" style="text-decoration: none; color: black;"><i
+                        <a href="addBookmark.php?id=<?= $row['id'] ?>" style="text-decoration: none; color: black;"><i
                                     class="fa-sharp fa-solid fa-pen-to-square" style="display: inline-block;"></i></a>
-                        <a href="php/delete.php?id=<?= $row['id'] ?>" style="text-decoration: none; color: black;"><i
-                                    class="fa-sharp fa-solid fa-trash" style="display: inline-block;"></i></a>
+                        
                     </aside>
                 </li>
                 <?php
