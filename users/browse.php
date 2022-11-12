@@ -115,7 +115,7 @@ if (!isset($_SESSION['login'])) {
                         <p>Published on <?= $row['published_date'] ?></p>
                         <br>
                         <a href="addBookmark.php?id=<?= $row['id'] ?>" style="text-decoration: none; color: black;"><i
-                                    class="fa-sharp fa-solid fa-pen-to-square" style="display: inline-block;"></i></a>
+                                    class="fa-solid fa-star" style="display: inline-block;"></i></a>
                         
                     </aside>
                 </li>
@@ -124,7 +124,7 @@ if (!isset($_SESSION['login'])) {
             ?>
             </ul>
         </main>
-
+        
         <aside class="filter">
             <h3>Filter hasil pencarian</h3>
             <div class="searching">
