@@ -77,15 +77,15 @@ if (isset($_POST['submit'])) {
     <div class="container-form">
         <form action="register.php" method="post">
             <label for="name">Nama Institusi</label>
-            <input type="text" name="name">
+            <input type="text" name="name" placeholder="Nama Institusi">
             <label for="website">Situs Web</label>
-            <input type="text" name="website">
+            <input type="text" name="website" placeholder="Website">
             <label for="email">Email</label>
             <input type="email" name="email" placeholder="example@domain.org">
             <label for="password">Password</label>
             <input type="password" name="password" placeholder="Password">
             <label for="konfir-password">Konfirmasi Password</label>
-            <input type="password" name="konfir-password">
+            <input type="password" name="konfir-password" placeholder="Konfirmasi Password">
             <input type="submit" name="submit" value="submit">
         </form>
 
