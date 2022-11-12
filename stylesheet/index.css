@@ -1,89 +1,107 @@
-
 .main {
-    /* height: 1000px; */
-    padding: 0px 30px;
+  padding: 0px 30px;
+}
+
+.main span {
+  color: #f87474;
+}
+
+.main-content {
+  margin-top: 20vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.section-title {
+  border-bottom: 2px solid #dee7ec;
+  font-size: 28;
+  padding-bottom: 15px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-title * {
+  margin: 0;
+}
+
+#show-more {
+  color: #FFB562;
+  cursor: pointer;
+}
+
+.contents {
+  display: flex;
+}
+
+.contents-item {
+  width: 240px;
+  margin-right: 40px;
+  display: inline-block;
+}
+
+.contents-item p {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  font-family: "Work Sans", sans-serif;
+  background-color: #3ab0ff;
+  color: #F9F2ED;
+  border: none;
+}
+
+.contact-form {
+  padding-top: 150px;
+}
+
+.contact-form input {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 20px;
+  font-size: 18px;
+  border: 1px solid #dee7ec;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-form textarea {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 20px;
+  font-size: 18px;
+  border: 1px solid #dee7ec;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-submit {
+  background-color: #3ab0ff;
+  color: white;
+}
+
+@media only screen and (max-width: 900px) {
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
   }
-  
-  .main span {
-    color: #f87474;
+
+  .main {
+    padding: 0 10px;
+    margin-top: 20vh;
+    font-size: 4vw;
   }
-  
-  .main-content {
-    /* height: 100%; */
-    margin-top: 100px;
-    overflow-x: auto;
-    overflow-y: hidden;
-  }
-  
-  .section-title {
-    border-bottom: 2px solid #dee7ec;
-    font-size: 28;
-    padding-bottom: 15px;
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .section-title * {
-    margin: 0;
-  }
-  
-  #show-more {
-    color: #FFB562;
-    cursor: pointer;
-  }
-  
-  .contents {
-    display: flex;
-  }
-  
-  .contents-item {
-    width: 240px;
-    margin-right: 40px;
-    display: inline-block;
-  }
-  
-  .contents-item p {
-    font-size: 24px;
-    margin-top: 10px;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  button {
-    font-family: "Work Sans", sans-serif;
-    background-color: #3ab0ff;
-    color: #F9F2ED;
-    border: none;
-  }
-  
+
   .contact-form {
-    padding-top: 150px;
+    width: 87%;
   }
-  
-  .contact-form input {
-    width: 400px;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    padding: 20px;
-    font-size: 18px;
-    border: 1px solid #dee7ec;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .contact-form textarea {
-    width: 400px;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    padding: 20px;
-    font-size: 18px;
-    border: 1px solid #dee7ec;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .contact-submit {
-    background-color: #3ab0ff;
-    color: white;
-  }
+
+}
