@@ -79,7 +79,18 @@ if (isset($_POST['submit'])) {
             <input type="email" name="email" placeholder="example@domain.org">
 
             <label for="password">Password</label>
-            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="password" placeholder="Password" 
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Password mengandung paling tidak 1 angka, 1 huruf kapital dan huruf kecil, dan minimal 8 karakter"
+                required>
+
+            <div id="message">
+                <b>Password harus mengandung paling tidak:</b>
+                <p id="letter" class="invalid">1 <b>huruf kecil</b></p>
+                <p id="capital" class="invalid">1 <b>huruf kapital</b></p>
+                <p id="number" class="invalid">1 <b>angka</b></p>
+                <p id="length" class="invalid"><b>8 karakter</b></p>
+            </div>
 
             <label for="konfir-password">Konfirmasi Password</label>
             <input type="password" name="konfir-password" placeholder="Konfirmasi Password">
