@@ -42,13 +42,7 @@ include('includes/header.php');
                 $search = $_GET['search'];
                 $query = mysqli_query(
                     $db,
-                    "SELECT journal.id,
-                            title,
-                            issn,
-                            published_date,
-                            cover_filename,
-                            journal_filename,
-                            publisher.name
+                    "SELECT *
                     FROM journal
                     JOIN publisher ON journal.id_publisher = publisher.id
                     WHERE title LIKE '%$search%' AND publisher.id = $idPublisher"
@@ -56,13 +50,7 @@ include('includes/header.php');
             } else { // jika tidak mencari
                 $query = mysqli_query(
                     $db,
-                    "SELECT journal.id,
-                            title,
-                            issn,
-                            published_date,
-                            cover_filename,
-                            journal_filename,
-                            publisher.name
+                    "SELECT *
                     FROM journal
                     JOIN publisher ON journal.id_publisher = publisher.id
                     WHERE publisher.id = $idPublisher"
@@ -98,9 +86,10 @@ include('includes/header.php');
                         <p><?= $row['name'] ?></p>
                         <br>
                         <p><i>ISSN </i><?= $row['issn'] ?></p>
+                        <p><?= $row['published_date'] ?></p>
                     </div>
                     <aside class="search-result-aside">
-                        <p>Published on <?= $row['published_date'] ?></p>
+                        <p>Last updated on <?= date('d M Y', strtotime($row['last_updated'])); ?></p>
                         <br>
                         <a href="editApplication.php?id=<?= $row['id'] ?>" style="text-decoration: none; color: black;"><i
                                     class="fa-sharp fa-solid fa-pen-to-square" style="display: inline-block;"></i></a>

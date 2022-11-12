@@ -10,12 +10,14 @@ if (isset($_POST['submit'])) {
     $title = $_POST['title'];
     $publishedDate = $_POST['published-date'];
     $issn = $_POST['issn'];
+    $current_datetime = date("Y-m-d H:i:s");
 
     $query = mysqli_query(
         $db,
         "UPDATE journal
         SET title='$title',
             published_date='$publishedDate',
+            last_updated='$current_datetime',
             issn='$issn'
         WHERE id='$id'"
     );

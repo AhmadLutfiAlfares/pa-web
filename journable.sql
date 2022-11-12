@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2022 at 09:57 AM
+-- Generation Time: Nov 12, 2022 at 01:13 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -44,6 +44,7 @@ CREATE TABLE `journal` (
   `id_publisher` int(10) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
   `published_date` year(4) NOT NULL,
+  `last_updated` datetime DEFAULT NULL,
   `issn` varchar(20) NOT NULL,
   `cover_filename` varchar(255) DEFAULT NULL,
   `journal_filename` varchar(255) DEFAULT NULL
@@ -53,8 +54,8 @@ CREATE TABLE `journal` (
 -- Dumping data for table `journal`
 --
 
-INSERT INTO `journal` (`id`, `id_publisher`, `title`, `published_date`, `issn`, `cover_filename`, `journal_filename`) VALUES
-(29, 26, 'Egyptian Journal of Critical Care Medicine', 2012, '21-321031-21', NULL, 'uploads/file-jurnal/Egyptian_Journal_of_Critical_Care_Medicine_file-jurnal.pdf');
+INSERT INTO `journal` (`id`, `id_publisher`, `title`, `published_date`, `last_updated`, `issn`, `cover_filename`, `journal_filename`) VALUES
+(29, 26, 'Egyptian Journal of Critical Care Medicine', 2012, '2022-11-12 12:59:05', '21-321031-21', 'uploads/cover/Egyptian_Journal_of_Critical_Care_Medicine_cover.jpg', 'uploads/file-jurnal/Egyptian_Journal_of_Critical_Care_Medicine_file-jurnal.pdf');
 
 -- --------------------------------------------------------
 

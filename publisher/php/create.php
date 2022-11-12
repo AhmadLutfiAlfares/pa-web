@@ -39,14 +39,15 @@ if (isset($_POST['submit'])) {
     $issn = $_POST['issn'];
     $publisherId = $_SESSION['pub_id'];
     $kind = "cover";
+    $current_datetime = date("Y-m-d H:i:s");
 
     // tambah jurnal ke tabel jurnal
     $query = mysqli_query(
         $db,
         "INSERT INTO
-            journal(title, published_date, issn, id_publisher)
+            journal(title, published_date, last_updated, issn, id_publisher)
         VALUES
-            ('$title', $publishedDate, '$issn', $publisherId)"
+            ('$title', $publishedDate, '$current_datetime', '$issn', $publisherId)"
     );
 
     $journal_id = mysqli_insert_id($db); // dapatkan id jurnal yang baru ditambahkan
