@@ -3,10 +3,10 @@
 }
 
 .form-container {
+    margin: 40px auto;
     background-color: #F9F2ED;
-    padding: 48px 64px;
-    display: flex;
-    flex-direction: column;
+    width: 40%;
+    padding: 15px;
 }
 
 .form-container form {
@@ -19,7 +19,7 @@
     color: #3AB0FF;
 }
 
-.input-area {
+input {
     height: 54px;
     padding: 10px 24px;
     border: 0px;
@@ -51,8 +51,7 @@
     }
 
     .form-container {
-        font-size: 3vw;
-        padding: 20px;
+        width: 90%;
     }
 
     .edit-container h1{
