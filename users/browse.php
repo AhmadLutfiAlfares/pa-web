@@ -38,6 +38,17 @@ if (!isset($_SESSION['login'])) {
 
         <h2>Jelajahi Jurnal</h2>
 
+        <aside class="filter">
+            <h3>Filter hasil pencarian</h3>
+            <div class="searching">
+                <form action="" method="get">
+                    <input type="text" name="search" placeholder="Cari judul" class="search">
+                    <input type="submit" name="submit" value="cari" class="cari">
+                </form>
+            </div>
+        </aside>
+
+
         <main>
             <ul class="search-results">
                 <?php
@@ -115,7 +126,7 @@ if (!isset($_SESSION['login'])) {
                     <aside class="search-result-aside">
                         <p>Published on <?= $row['published_date'] ?></p>
                         <br>
-                        <a href="addBookmark.php?id=<?= $row['id'] ?>" style="text-decoration: none; color: black;"><i
+                        <a href="addBookmark.php?id=<?= $row['id'] ?>" class="icon-class" style="text-decoration: none; color: black;"><i
                                     class="fa-solid fa-star" style="display: inline-block;"></i></a>
                         
                     </aside>
@@ -125,16 +136,6 @@ if (!isset($_SESSION['login'])) {
             ?>
             </ul>
         </main>
-        
-        <aside class="filter">
-            <h3>Filter hasil pencarian</h3>
-            <div class="searching">
-                <form action="" method="get">
-                    <input type="text" name="search" placeholder="Cari judul" class="search">
-                    <input type="submit" name="submit" value="cari" class="cari">
-                </form>
-            </div>
-        </aside>
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
