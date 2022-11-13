@@ -34,9 +34,9 @@ function file_upload($title, $db, $journal_id, $kind): void
 
 // jika klik submit
 if (isset($_POST['submit'])) {
-    $title = $_POST['title'];
-    $publishedDate = $_POST['published-date'];
-    $issn = $_POST['issn'];
+    $title = htmlspecialchars($_POST['title']);
+    $publishedDate = htmlspecialchars($_POST['published-date']);
+    $issn = htmlspecialchars($_POST['issn']);
     $publisherId = $_SESSION['pub_id'];
     $kind = "cover";
     $current_datetime = date("Y-m-d H:i:s");

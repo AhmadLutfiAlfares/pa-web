@@ -32,10 +32,10 @@ function file_upload($title, $db, $journal_id, $kind): void
 }
 
 if (isset($_POST['submit'])) {
-    $id = $_POST['id'];
-    $title = $_POST['title'];
-    $publishedDate = $_POST['published-date'];
-    $issn = $_POST['issn'];
+    $id = htmlspecialchars($_POST['id']);
+    $title = htmlspecialchars($_POST['title']);
+    $publishedDate = htmlspecialchars($_POST['published-date']);
+    $issn = htmlspecialchars($_POST['issn']);
     $current_datetime = date("Y-m-d H:i:s");
 
     $query = mysqli_query(

@@ -6,11 +6,11 @@
 
 require '../php/config.php';
 if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $konfirmasi = $_POST['konfir-password'];
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $username = htmlspecialchars($_POST['username']);
+    $password = htmlspecialchars($_POST['password']);
+    $konfirmasi = htmlspecialchars($_POST['konfir-password']);
 
     // cek apakah email sudah dipakai
     $query = mysqli_query(

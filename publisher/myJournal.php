@@ -1,9 +1,17 @@
 <?php
+
 /**
  * @var mysqli $db
  */
 
 session_start();
+
+// jika belum login arahkan ke halaman login
+if (!isset($_SESSION['login'])) {
+    header('Location: ../loginPenerbit.php');
+    exit;
+}
+
 $idPublisher = $_SESSION['pub_id']
 ?>
 
@@ -24,25 +32,44 @@ $idPublisher = $_SESSION['pub_id']
 </head>
 
 <body>
-<?php
-include('includes/header.php');
-?>
+    <?php
+    include('includes/header.php');
+    ?>
 
-<div class="all-container">
+    <div class="all-container">
 
-    <h2>Jelajahi Jurnal</h2>
+        <h2>Jelajahi Jurnal</h2>
 
-    <main>
-        <ul class="search-results">
-            <?php
-            require "../php/config.php";
+        
+        <aside class="filter">
+            <h3>Filter hasil pencarian</h3>
+            <div class="searching">
+                <form action="" method="get">
+                    <input type="text" name="search" placeholder="Cari judul" class="search">
+                    <input type="submit" name="submit" value="Cari" class="cari">
+                </form>
+            </div>
+        </aside>
+        
+        <div class="add-new">
+            <i class="fa-solid fa-plus" style="display: inline-block;"></i>
+            <a href="apply.php" style="text-decoration: none; color: black;">
+                <p style="display: inline-block;">Daftarkan Jurnal</p>
+            </a>
+        </div>
 
-            // jika memasukkan kata kunci pencarian
-            if (isset($_GET['submit'])) {
-                $search = $_GET['search'];
-                $query = mysqli_query(
-                    $db,
-                    "SELECT journal.id,
+
+        <main>
+            <ul class="search-results">
+                <?php
+                require "../php/config.php";
+
+                // jika memasukkan kata kunci pencarian
+                if (isset($_GET['submit'])) {
+                    $search = $_GET['search'];
+                    $query = mysqli_query(
+                        $db,
+                        "SELECT journal.id,
                             title,
                             issn,
                             published_date,
@@ -53,11 +80,11 @@ include('includes/header.php');
                     FROM journal
                     JOIN publisher ON journal.id_publisher = publisher.id
                     WHERE title LIKE '%$search%' AND publisher.id = $idPublisher"
-                );
-            } else { // jika tidak mencari
-                $query = mysqli_query(
-                    $db,
-                    "SELECT journal.id,
+                    );
+                } else { // jika tidak mencari
+                    $query = mysqli_query(
+                        $db,
+                        "SELECT journal.id,
                             title,
                             issn,
                             published_date,
@@ -68,75 +95,57 @@ include('includes/header.php');
                     FROM journal
                     JOIN publisher ON journal.id_publisher = publisher.id
                     WHERE publisher.id = $idPublisher"
-                );
-            }
-            while ($row = mysqli_fetch_assoc($query)) {
+                    );
+                }
+                while ($row = mysqli_fetch_assoc($query)) {
                 ?>
-                <li class="card">
-                    <?php
-                    $journal_filename = $row['journal_filename'];
-                    $cover_filename = $row['cover_filename'];
-                    // jika tidak ada file nya, ganti link nya ke #
-                    if (!$journal_filename) {
-                        $journal_filename = '#';
-                    }
-                    // jika ada covernya, tampilin
-                    if ($cover_filename) {
-                        $title = $row['title'];
-                        echo "<a href='$journal_filename'>
+                    <li class="card">
+                        <?php
+                        $journal_filename = $row['journal_filename'];
+                        $cover_filename = $row['cover_filename'];
+                        // jika tidak ada file nya, ganti link nya ke #
+                        if (!$journal_filename) {
+                            $journal_filename = '#';
+                        }
+                        // jika ada covernya, tampilin
+                        if ($cover_filename) {
+                            $title = $row['title'];
+                            echo "<a href='$journal_filename'>
                             <img src = '$cover_filename' alt = 'Cover $title' height = '200px'>
                         </a>";
-                        // jika tidak ada bikin kotak dengan icon download
-                    } else {
-                        echo "<a href='$journal_filename'>
+                            // jika tidak ada bikin kotak dengan icon download
+                        } else {
+                            echo "<a href='$journal_filename'>
                             <div style='height: 200px; width: 146px'>
                                 <i class='fa-solid fa-file-arrow-down'></i>
                             </div>
                         </a>";
-                    }
-                    ?>
-                    <div class="search-result-main">
-                        <h3><?= $row['title'] ?></h3>
-                        <p><?= $row['name'] ?></p>
-                        <br>
-                        <p><i>ISSN </i><?= $row['issn'] ?></p>
-                        <p><?= $row['published_date'] ?></p>
-                    </div>
-                    <aside class="search-result-aside">
-                        <p>Last updated on <?= date('d M Y', strtotime($row['last_updated'])); ?></p>
-                        <br>
-                        <a href="editApplication.php?id=<?= $row['id'] ?>" style="text-decoration: none; color: black;"><i
-                                    class="fa-sharp fa-solid fa-pen-to-square" style="display: inline-block;"></i></a>
-                        <a href="php/delete.php?id=<?= $row['id'] ?>" style="text-decoration: none; color: black;"><i
-                                    class="fa-sharp fa-solid fa-trash" style="display: inline-block;"></i></a>
-                    </aside>
-                </li>
+                        }
+                        ?>
+                        <div class="search-result-main">
+                            <h3><?= $row['title'] ?></h3>
+                            <p><?= $row['name'] ?></p>
+                            <br>
+                            <p><i>ISSN </i><?= $row['issn'] ?></p>
+                            <p><?= $row['published_date'] ?></p>
+                        </div>
+                        <aside class="search-result-aside">
+                            <p>Last updated on <?= date('d M Y', strtotime($row['last_updated'])); ?></p>
+                            <br>
+                            <a href="editApplication.php?id=<?= $row['id'] ?>" class="icon-class" style="text-decoration: none; color: black;"><i class="fa-sharp fa-solid fa-pen-to-square" style="display: inline-block;"></i></a>
+                            <a href="php/delete.php?id=<?= $row['id'] ?>" class="icon-class" style="text-decoration: none; color: black;"><i class="fa-sharp fa-solid fa-trash" style="display: inline-block;"></i></a>
+                        </aside>
+                    </li>
                 <?php
-            }
-            ?>
-        </ul>
+                }
+                ?>
+            </ul>
 
-        <div class="add-new">
-            <i class="fa-solid fa-plus" style="display: inline-block;"></i>
-            <a href="apply.php" style="text-decoration: none; color: black;">
-                <p style="display: inline-block;">Daftarkan Jurnal</p>
-            </a>
-        </div>
-    </main>
+        </main>
 
-    <aside class="filter">
-        <h3>Filter hasil pencarian</h3>
-        <div class="searching">
-            <form action="" method="get">
-                <input type="text" name="search" placeholder="Cari judul" class="search">
-                <input type="submit" name="submit" value="cari" class="cari">
-            </form>
-        </div>
-    </aside>
-
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="../javascript/darkMode.js"></script>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="../javascript/darkMode.js"></script>
 </body>
 
 </html>

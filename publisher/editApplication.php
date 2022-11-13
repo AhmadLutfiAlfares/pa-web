@@ -4,7 +4,15 @@
  * @var mysqli $db
  */
 
+session_start();
 require "../php/config.php";
+
+// jika belum login arahkan ke halaman login
+if (!isset($_SESSION['login'])) {
+    header('Location: ../loginPenerbit.php');
+    exit;
+}
+
 $id = $_GET['id'];
 $query = mysqli_query(
     $db,
@@ -63,14 +71,14 @@ include('includes/header.php');
                 ?>
                 <img src="<?= $result['cover_filename'] ?>" alt="" height="100px" width="70px">
                 <!--                    TODO : buat delete gambar-->
-                <a href="php/deleteFile.php?id=<?= $result['id'] ?>">Hapus cover</a>
+                <a href="php/deleteFile.php?id=<?= $result['id'] ?>">Hapus cover</a><br>
                 <?php
             }
             ?>
-            <input type="file" id="cover" name="cover">
+            <input type="file" id="cover" name="cover"><br>
             <!-- file jurnal -->
             <label for="file-jurnal">File Jurnal</label>
-            <input type="file" name="file-jurnal">
+            <input type="file" name="file-jurnal"><br>
             <!-- submit -->
             <input type="submit" name="submit" value="Apply">
         </form>
