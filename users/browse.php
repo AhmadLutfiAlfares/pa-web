@@ -80,6 +80,7 @@ if (!isset($_SESSION['login'])) {
                     echo "Belum ada jurnal favorit";
                 }
 
+                // mengecek kalau data ada
                 while ($row = mysqli_fetch_assoc($query)) {
                 ?>
                     <li class="card">
