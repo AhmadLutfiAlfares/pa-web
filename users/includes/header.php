@@ -13,6 +13,7 @@
             if (isset($_SESSION['login'])) {
                 echo "<li><a href='browse.php'>Jelajahi</a></li>";
                 echo "<li><a href='bookmark.php'>Bookmark</a></li>";
+                echo "<li><a href='profil.php'>Profil</a></li>";
                 echo "<li>Dark mode: <span class='change'>OFF</span></li>";
                 echo "<li><a href='includes/logout.php'>Keluar</a></li>";
             } else {
