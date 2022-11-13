@@ -31,21 +31,97 @@ img {
     float: left;
 }
 
+.search-results {
+    padding: 0;
+}
+
 .add-new {
     text-align: center;
     cursor: pointer;
     background-color: #3AB0FF;
-    margin-left: 38px;
+    float: left;
+    padding: 0.5% 2%;
+    margin-top: 2vh;
 }
 
 .filter {
-    width: 25%;
+    width: 100%;
+}
+
+.filter input[type=text] {
+    width: 70%;
+    margin: 15px 0;
+    padding: 5px;
+    font-size: 3vh;
+}
+
+.filter input[type=submit] {
+    background-color: #3AB0FF;
+    cursor: pointer;
+    border: 2;
+    border-style: solid;
+    border-color: #3AB0FF;
+    color: black;
+    width: 20%;
+    margin: 15px 0;
+    padding: 5px;
+    font-size: 3vh;
 }
 
 main {
-    width: 75%;
+    width: 100%;
     height: 100%;
-    margin-left: 30px;
-    float: right;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
     /* background-color: #3AB0FF; */
+}
+
+@media only screen and (max-width: 900px) {
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+    }
+
+    .all-container h2 {
+        font-size: 4vh;
+        margin-top: 10vh;
+    }
+
+    .card {
+        flex-flow: column;
+    }
+
+    .icon-class {
+        font-size: 2em;
+        padding-right: 2em;
+    }
+
+    .filter {
+        font-size: 2vh;
+        width: 100%;
+    }
+
+    .filter input[type=text] {
+        width: 60%;
+        margin: 15px 0;
+        padding: 5px;
+        font-size: 3vh;
+    }
+
+    .filter input[type=submit] {
+        background-color: #3AB0FF;
+        border: 2;
+        border-style: solid;
+        border-color: #3AB0FF;
+        color: black;
+        width: 30%;
+        margin: 15px 0;
+        padding: 5px;
+        font-size: 3vh;
+    }
 }
