@@ -50,10 +50,10 @@ $result = mysqli_fetch_assoc($query);
         <div class="form-container">
             <form action="php/update.php" method="post" enctype="multipart/form-data">
                 <label for="name">Username</label>
-                <input type="text" id="username" name="username" placeholder="Username" value="<?= $result['username']?>">
+                <input type="text" id="username" name="username" placeholder="Username" value="<?= $result['username'] ?>">
 
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="" value="<?= $result['email']?>">
+                <input type="email" id="email" name="email" placeholder="" value="<?= $result['email'] ?>">
 
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Password" 
