@@ -32,6 +32,16 @@ $idUser = $_SESSION['id_user']
     <div class="all-container">
 
         <h2>Bookmark</h2>
+        
+        <aside class="filter">
+            <h3>Filter hasil pencarian</h3>
+            <div class="searching">
+                <form action="" method="get">
+                    <input type="text" name="search" placeholder="Cari judul" class="search">
+                    <input type="submit" name="submit" value="cari" class="cari">
+                </form>
+            </div>
+        </aside>
 
         <main>
             <ul class="search-results">
@@ -116,7 +126,7 @@ $idUser = $_SESSION['id_user']
                     <aside class="search-result-aside">
                         <p>Published on <?= $row['published_date'] ?></p>
                         <br>
-                        <a href="php/delete.php? id=<?= $row['id_bookmark'] ?>" style="text-decoration: none; color: black;"><i
+                        <a href="php/delete.php? id=<?= $row['id_bookmark'] ?>" class="icon-class" style="text-decoration: none; color: black;"><i
                                     class="fa-sharp fa-solid fa-trash" style="display: inline-block;"></i></a>
                     </aside>
                 </li>
@@ -125,17 +135,6 @@ $idUser = $_SESSION['id_user']
             ?>
             </ul>
         </main>
-
-        <aside class="filter">
-            <h3>Filter hasil pencarian</h3>
-            <div class="searching">
-                <form action="" method="get">
-                    <input type="text" name="search" placeholder="Cari judul" class="search">
-                    <input type="submit" name="submit" value="cari" class="cari">
-                </form>
-            </div>
-        </aside>
-
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="../javascript/darkmode.js"></script>
