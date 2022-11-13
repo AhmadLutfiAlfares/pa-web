@@ -4,7 +4,15 @@
  * @var mysqli $db
  */
 
+session_start();
 require "../php/config.php";
+
+// jika belum login arahkan ke halaman login
+if (!isset($_SESSION['login'])) {
+    header('Location: ../loginPenerbit.php');
+    exit;
+}
+
 $id = $_GET['id'];
 $query = mysqli_query(
     $db,

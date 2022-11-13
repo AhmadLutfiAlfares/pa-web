@@ -6,6 +6,13 @@
 
 require "../php/config.php";
 session_start();
+
+// jika belum login arahkan ke halaman login
+if (!isset($_SESSION['login'])) {
+    header('Location: ../loginPenerbit.php');
+    exit;
+}
+
 $id = $_SESSION['pub_id'];
 $query = mysqli_query(
     $db,
