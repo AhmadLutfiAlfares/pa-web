@@ -57,7 +57,7 @@ if (!isset($_SESSION['login'])) {
                             <p>Email : <?= $row['email'] ?></p>
                         </div>
                         <aside class="search-result-aside">
-                            <a href="editprofil.php?id=<?= $row['id'] ?>" style="text-decoration: none; color: black;"><i class="fa-sharp fa-solid fa-pen-to-square" style="display: inline-block;"></i>Edit</a>
+                            <a href="editprofil.php?id=<?= $row['id'] ?>"  class="icon-class" style="text-decoration: none; color: black;"><i class="fa-sharp fa-solid fa-pen-to-square" style="display: inline-block;"></i>Edit</a>
 
                         </aside>
                     </li>
