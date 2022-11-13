@@ -8,11 +8,11 @@ session_start();
 $idUser = $_SESSION['id_user'];
 
 if (!isset($_SESSION['login'])) {
-        header("Location: ../loginUser.php");
-        exit;
+    header("Location: ../loginUser.php");
+    exit;
 }
-    
-    
+
+
 ?>
 
 
@@ -38,23 +38,26 @@ if (!isset($_SESSION['login'])) {
     ?>
 
     <div class="all-container">
+
+        <h2>Profil</h2>
+
         <main>
             <ul class="search-results">
                 <?php
                 require "../php/config.php";
 
                 $query = mysqli_query($db, "SELECT * FROM user WHERE id = '$idUser'");
-                
+
                 // mengecek kalau data ada
                 while ($row = mysqli_fetch_assoc($query)) {
                 ?>
                     <li class="card">
                         <div class="search-result-main">
-                            <h3>Username : <?= $row['username'] ?></h3>
+                            <p>Username : <?= $row['username'] ?></p>
                             <p>Email : <?= $row['email'] ?></p>
                         </div>
                         <aside class="search-result-aside">
-                            <a href="addBookmark.php?id=<?= $row['id'] ?>" style="text-decoration: none; color: black;"><i class="fa-sharp fa-solid fa-pen-to-square" style="display: inline-block;"></i>Edit</a>
+                            <a href="editprofil.php?id=<?= $row['id'] ?>" style="text-decoration: none; color: black;"><i class="fa-sharp fa-solid fa-pen-to-square" style="display: inline-block;"></i>Edit</a>
 
                         </aside>
                     </li>
