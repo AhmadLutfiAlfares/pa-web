@@ -35,6 +35,7 @@ if (isset($_POST['submit'])) {
     $id = htmlspecialchars($_POST['id']);
     $title = htmlspecialchars($_POST['title']);
     $publishedDate = htmlspecialchars($_POST['published-date']);
+    $category = $_POST['kategori'];
     $issn = htmlspecialchars($_POST['issn']);
     $current_datetime = date("Y-m-d H:i:s");
 
@@ -43,6 +44,7 @@ if (isset($_POST['submit'])) {
         "UPDATE journal
         SET title='$title',
             published_date='$publishedDate',
+            category='$category',
             last_updated='$current_datetime',
             issn='$issn'
         WHERE id='$id'"

@@ -36,6 +36,7 @@ function file_upload($title, $db, $journal_id, $kind): void
 if (isset($_POST['submit'])) {
     $title = htmlspecialchars($_POST['title']);
     $publishedDate = htmlspecialchars($_POST['published-date']);
+    $category = $_POST['kategori'];
     $issn = htmlspecialchars($_POST['issn']);
     $publisherId = $_SESSION['pub_id'];
     $kind = "cover";
@@ -45,9 +46,9 @@ if (isset($_POST['submit'])) {
     $query = mysqli_query(
         $db,
         "INSERT INTO
-            journal(title, published_date, last_updated, issn, id_publisher)
+            journal(title, published_date, category, last_updated, issn, id_publisher)
         VALUES
-            ('$title', $publishedDate, '$current_datetime', '$issn', $publisherId)"
+            ('$title', $publishedDate, '$category', '$current_datetime', '$issn', $publisherId)"
     );
 
     $journal_id = mysqli_insert_id($db); // dapatkan id jurnal yang baru ditambahkan

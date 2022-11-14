@@ -41,6 +41,15 @@ if (!isset($_SESSION['loginPublisher'])) {
                 <!-- tanggal terbit -->
                 <label for="published-date">Tahun Terbit</label>
                 <input type="number" id="published-date" name="published-date" class="input-area">
+                <!-- kategori -->
+                <label for="kategori">Bidang Riset</label>
+                <select id="kategori" name="kategori" class="input-dropdown">
+                    <option value="Teknologi Informasi">Teknologi Informasi</option>
+                    <option value="Agrikultur">Agrikultur</option>
+                    <option value="Kesehatan dan Farmasi">Kesehatan dan Farmasi</option>
+                    <option value="Sosial Humaniora">Sosial Humaniora</option>
+                    <option value="Lainnnya">Lainnya</option>
+                </select>
                 <!-- issn -->
                 <label for="issn">ISSN</label>
                 <input type="text" id="issn" name="issn" class="input-area">

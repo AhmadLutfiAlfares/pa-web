@@ -73,6 +73,7 @@ $idPublisher = $_SESSION['pub_id']
                             title,
                             issn,
                             published_date,
+                            category,
                             last_updated,
                             cover_filename,
                             journal_filename,
@@ -88,6 +89,7 @@ $idPublisher = $_SESSION['pub_id']
                             title,
                             issn,
                             published_date,
+                            category,
                             last_updated,
                             cover_filename,
                             journal_filename,
@@ -125,9 +127,10 @@ $idPublisher = $_SESSION['pub_id']
                         <div class="search-result-main">
                             <h3><?= $row['title'] ?></h3>
                             <p><?= $row['name'] ?></p>
+                            <p><?= $row['published_date'] ?></p>
                             <br>
                             <p><i>ISSN </i><?= $row['issn'] ?></p>
-                            <p><?= $row['published_date'] ?></p>
+                            <p><?= $row['category'] ?></p>
                         </div>
                         <aside class="search-result-aside">
                             <p>Last updated on <?= date('d M Y', strtotime($row['last_updated'])); ?></p>
