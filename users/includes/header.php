@@ -25,5 +25,5 @@
         </ul>
     </div>
     <img class="ham-menu" src="../images/icons/hamburger-menu.png" onclick="toggleMenu()">
-</div>
+</div>  
 <script src="../javascript/hamburgerMenu.js"></script>
