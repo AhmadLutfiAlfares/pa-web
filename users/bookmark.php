@@ -26,7 +26,7 @@ $idUser = $_SESSION['id_user']
 
 <body>
     <?php
-    include('../includes/header.php');
+    include('includes/header.php');
     ?>
 
     <div class="all-container">
