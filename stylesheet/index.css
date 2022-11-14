@@ -1,5 +1,5 @@
 .main {
-  padding: 0px 30px;
+  padding: 0 30px;
 }
 
 .main span {
@@ -14,7 +14,7 @@
 
 .section-title {
   border-bottom: 2px solid #dee7ec;
-  font-size: 28;
+  font-size: 18px;
   padding-bottom: 15px;
   margin-bottom: 50px;
   display: flex;
@@ -32,6 +32,11 @@
 
 .contents {
   display: flex;
+}
+
+.contents a {
+  text-decoration: none;
+  color: black;
 }
 
 .contents-item {

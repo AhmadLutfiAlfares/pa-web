@@ -23,36 +23,54 @@
   <?php
     include('includes/header.php');
   ?>
-  
+
   <div class="main">
-    <div class="header-content">
-      <h1>Publikasikan Artikel Anda</h1>
-      <h2>Temukan Jurnal yang Tepat <span id="sekarang">Sekarang</span></h2>
-    </div>
-    <div class="main-content">
-      <div class="section-title">
-        <h3>Kategori</h3>
-        <p id="show-more">Lebih banyak</p>
+      <div class="header-content">
+          <h1>Publikasikan Artikel Anda</h1>
+          <h2>Temukan Jurnal yang Tepat <span id="sekarang">Sekarang</span></h2>
       </div>
-      <div class="contents">
-        <div class="contents-item">
-          <img src="../images/teknologi-informasi.png" alt="" />
-          <p>Teknologi Informasi</p>
-        </div>
-        <div class="contents-item ">
-          <img src="../images/kesehatan-dan-farmasi.png" alt="" />
-          <p>Kesehatan dan Farmasi</p>
-        </div>
-        <div class="contents-item hidden">
-          <img src="../images/agrikultur.png" alt="" />
-          <p>Agrikultur</p>
-        </div>
-        <div class="contents-item hidden">
-          <img src="../images/sosial-humaniora.png" alt="" />
-          <p>Sosial Humaniora</p>
-        </div>
+      <div class="main-content">
+          <div class="section-title">
+              <h3>Kategori</h3>
+              <p id="show-more">Lebih banyak</p>
+          </div>
+          <div class="contents">
+              <a href="/users/browse.php?kategori=teknologi-informasi">
+                  <div class="contents-item">
+                      <img src="/images/teknologi-informasi.png" alt=""/>
+                      <p>Teknologi Informasi</p>
+                  </div>
+              </a>
+              <a href="/users/browse.php?kategori=kesehatan-dan-farmasi">
+                  <div class="contents-item ">
+                      <img src="/images/kesehatan-dan-farmasi.png" alt=""/>
+                      <p>Kesehatan dan Farmasi</p>
+                  </div>
+              </a>
+              <a href="/users/browse.php?kategori=agrikultur">
+                  <div class="contents-item hidden">
+                      <img src="/images/agrikultur.png" alt=""/>
+                      <p>Agrikultur</p>
+                  </div>
+              </a>
+              <a href="/users/browse.php?kategori=sosial-humaniora">
+                  <div class="contents-item hidden">
+                      <img src="/images/sosial-humaniora.png" alt=""/>
+                      <p>Sosial Humaniora</p>
+                  </div>
+              </a>
+          </div>
       </div>
-    </div>
+
+      <form class="contact-form" name="contact" action="#" onsubmit="validateForm()">
+          <h3 class="section-title">Hubungi Kami</h3>
+          <p>Email (Wajib diisi)</p>
+          <input type="text" name="email" class="form-control"/>
+          <p>Pesan (Wajib diisi)</p>
+          <textarea name="message" id="" cols="53" rows="8" class="form-control"></textarea>
+          <p>* Bidang wajib diisi</p>
+          <input type="submit" name='submit' class="contact-submit"/>
+      </form>
   </div>
   <div class="footer">
     <div class="footer-list">
