@@ -7,7 +7,7 @@
 session_start();
 $idUser = $_SESSION['id_user'];
 
-if (!isset($_SESSION['login'])) {
+if (!isset($_SESSION['loginUser'])) {
     header("Location: ../loginUser.php");
     exit;
 }
@@ -34,7 +34,7 @@ if (!isset($_SESSION['login'])) {
 
 <body>
     <?php
-    include('includes/header.php');
+    include('../includes/header.php');
     ?>
 
     <div class="all-container">

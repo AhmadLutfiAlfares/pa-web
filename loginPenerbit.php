@@ -8,7 +8,7 @@ session_start();
 require 'php/config.php';
 
 // jika penerbit sudah login
-if (isset($_SESSION['login'])) {
+if (isset($_SESSION['loginPublisher'])) {
     header('Location: publisher/myJournal.php');
     exit;
 }
@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
 
     if (password_verify($password, $result['password'])) {
         // set session
-        $_SESSION['login'] = true;
+        $_SESSION['loginPublisher'] = true;
         // simpan id publisher untuk dipakai di create.php
         $_SESSION['pub_id'] = $result['id'];
         echo "

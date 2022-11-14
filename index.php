@@ -3,6 +3,18 @@
 <!-- agrikultur <a href="https://www.freepik.com/free-photo/agriculture-iot-with-rice-field-background_17121987.htm#query=agriculture%20banner&position=16&from_view=search">Image by rawpixel.com</a> on Freepik -->
 <!-- sosial humaniora <a href="https://www.freepik.com/free-vector/people-poster-global-communication_3908770.htm#query=social%20humanities%20banner&position=1&from_view=search">Image by macrovector</a> on Freepik -->
 
+<?php
+session_start();
+if (isset($_SESSION['loginUser'])) {
+  header("Location: users/halamanUser.php");
+  exit;
+}
+if (isset($_SESSION['loginPublisher'])) {
+  header("Location: publisher/index.php");
+  exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +35,7 @@
   <?php
   include('includes/header.php');
   ?>
-  
+
   <div class="main">
     <div class="header-content">
       <h1>Publikasikan Artikel Anda</h1>

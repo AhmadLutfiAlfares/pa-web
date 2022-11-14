@@ -3,12 +3,6 @@
 /**
  * @var mysqli $db
  */
-
-session_start();
-if (!isset($_SESSION['login'])) {
-    header("Location: ../loginUser.php");
-    exit;
-}
 ?>
 
 
@@ -31,7 +25,7 @@ if (!isset($_SESSION['login'])) {
 
 <body>
     <?php
-    include('includes/header.php');
+    include('../includes/header.php');
     ?>
 
     <div class="all-container">
@@ -88,7 +82,7 @@ if (!isset($_SESSION['login'])) {
                 // untuk mengecek kalau datanya kosong
                 $cek = mysqli_num_rows($query);
                 if (empty($cek)) {
-                    echo "Belum ada jurnal favorit";
+                    echo "Jurnal tidak ada";
                 }
 
                 // mengecek kalau data ada

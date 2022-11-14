@@ -3,7 +3,7 @@ session_start();
 include '../php/config.php';
 
 // jika belum login arahkan ke halaman login
-if (!isset($_SESSION['login'])) {
+if (!isset($_SESSION['loginPublisher'])) {
     header('Location: ../loginPenerbit.php');
     exit;
 }

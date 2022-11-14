@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
 
     if (password_verify($password, $result['password'])) {
         // set session
-        $_SESSION['login'] = true;
+        $_SESSION['loginUser'] = true;
         // simpan id user untuk dipakai di bookmark.php
         $_SESSION['id_user'] = $result['id'];
         echo "

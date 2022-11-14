@@ -8,7 +8,7 @@ session_start();
 require "../php/config.php";
 
 // jika belum login arahkan ke halaman login
-if (!isset($_SESSION['login'])) {
+if (!isset($_SESSION['loginUser'])) {
     header('Location: ../loginUser.php');
     exit;
 }
@@ -41,7 +41,7 @@ $result = mysqli_fetch_assoc($query);
 
 <body>
     <?php
-    include('includes/header.php');
+    include('../includes/header.php');
     ?>
 
     <div class="edit-container">

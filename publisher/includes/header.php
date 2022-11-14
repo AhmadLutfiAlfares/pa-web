@@ -10,11 +10,12 @@
             }
 
             // jika sudah login tampilin link keluar begitu juga sebaliknya
-            if (isset($_SESSION['login'])) {
+            if (isset($_SESSION['loginPublisher'])) {
                 echo "<li><a href='myJournal.php'>Jurnal Saya</a></li>";
                 echo "<li>Dark mode: <span class='change'>OFF</span></li>";
                 echo "<li><a href='includes/logout.php'>Keluar</a></li>";
             } else {
+                echo "<li><a href='../users/browse.php'>Jelajahi</a></li>";
                 echo "<li>Dark mode: <span class='change'>OFF</span></li>";
                 echo "<li><a href='../pilihLogin.php'>Masuk</a></li>";
             }

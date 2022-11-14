@@ -26,7 +26,7 @@ $idUser = $_SESSION['id_user']
 
 <body>
     <?php
-    include('includes/header.php');
+    include('../includes/header.php');
     ?>
 
     <div class="all-container">
@@ -88,7 +88,11 @@ $idUser = $_SESSION['id_user']
                 // untuk mengecek kalau datanya kosong
                 $cek = mysqli_num_rows($query);
                 if (empty($cek)) {
-                    echo "Belum ada jurnal favorit";
+                    if(isset($_GET['submit'])){
+                        echo "Jurnal tidak ditemukan";
+                    } else {
+                        echo "Belum ada jurnal favorit";
+                    }
                 }
 
                 // jika datanya ada tampilkan datanya
