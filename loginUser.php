@@ -18,24 +18,28 @@ if (isset($_POST['submit'])) {
         "SELECT * FROM user WHERE email = '$user' OR username = '$user'"
     );
 
-    $result = mysqli_fetch_assoc($query);
-    $username = $result['username'];
-
-    if (password_verify($password, $result['password'])) {
-        // set session
-        $_SESSION['loginUser'] = true;
-        // simpan id user untuk dipakai di bookmark.php
-        $_SESSION['id_user'] = $result['id'];
-        echo "
-            <script>
-            alert('Login berhasil! Selamat datang $username');
-            document.location.href = 'users/halamanUser.php';
-            </script>";
-    } else {
-        echo "
-            <script>
-            alert('Username atau password salah');
-            </script>";
+    if ($query) {
+        if (mysqli_num_rows($query) > 0) {
+            $result = mysqli_fetch_assoc($query);
+            $username = $result['username'];
+            if (password_verify($password, $result['password'])) {
+                // set session
+                $_SESSION['loginUser'] = true;
+                // simpan id user untuk dipakai di bookmark.php
+                $_SESSION['id_user'] = $result['id'];
+                // memanggil username 
+                echo "
+                    <script>
+                    alert('Login berhasil! Selamat datang $username');
+                    document.location.href = 'users/halamanUser.php';
+                    </script>";
+            }
+        } else {
+            echo "
+                <script>
+                alert('Username atau password salah');
+                </script>";
+        }
     }
 }
 ?>
