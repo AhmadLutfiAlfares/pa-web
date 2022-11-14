@@ -41,7 +41,7 @@ $result = mysqli_fetch_assoc($query);
 
 <body>
     <?php
-    include('../includes/header.php');
+    include('includes/header.php');
     ?>
 
     <div class="edit-container">
