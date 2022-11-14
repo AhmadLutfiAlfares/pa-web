@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
     include('includes/header.php');
     ?>
     <div class="container-form">
-        <form action="registerUser.php" method="post">
+        <form action="register.php" method="post">
             <label for="name">Username</label>
             <input type="text" name="username" placeholder="Username">
 
@@ -105,7 +105,7 @@ if (isset($_POST['submit'])) {
 
 <script src="../javascript/passwordValidation.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="../javascript/darkmode.js"></script>
+<script src="../javascript/darkMode.js"></script>
 </body>
 
 </html>
