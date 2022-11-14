@@ -49,14 +49,17 @@ include('includes/header.php');
 
 date_default_timezone_set("Asia/Makassar");
 $timeOfDay = date('a');
-if ($timeOfDay == 'am') {
-    echo '<p class="welcome">Good morning, welcome to our site</p>';
-} else {
-    echo '<p class="welcome">Good afternoon, welcome to our site</p>';
-}
-echo "<p class='pIndex'>Jurnal anda yang sudah di publish: $numOfJournal</p>";
 ?>
-
+<div class="main">
+    <?php
+    if ($timeOfDay == 'am') {
+        echo '<h2 class="welcome">Selamat pagi</h2>';
+    } else {
+        echo '<h2 class="welcome">Selamat petang</h2>';
+    }
+    echo "<p class='pIndex'>Jurnal anda yang sudah di publish: $numOfJournal</p>";
+    ?>
+</div>
 </body>
 
 </html>
