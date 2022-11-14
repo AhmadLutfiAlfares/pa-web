@@ -1,5 +1,5 @@
 <div class="header">
-    <div class="header-logo">Journable</div>
+    <div class="header-logo"><a href="halamanUser.php">Journable</a></div>
     <div class="header-list" id="headerId">
         <ul>
             

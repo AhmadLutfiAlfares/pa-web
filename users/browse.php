@@ -145,7 +145,7 @@ include('includes/header.php');
                         <br>
                         <a href="addBookmark.php?id=<?= $row['id'] ?>" class="icon-class"
                            style="text-decoration: none; color: black;"><i
-                                    class="fa-solid fa-star" style="display: inline-block;"></i></a>
+                           class="fa-solid fa-star" style="display: inline-block;"></i></a>
 
                     </aside>
                 </li>
