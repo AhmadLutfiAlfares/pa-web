@@ -6,7 +6,7 @@ session_start();
 require "../php/config.php";
 
 
-if (!isset($_SESSION['login'])) {
+if (!isset($_SESSION['loginUser'])) {
     header("Location: ../loginUser.php");
     exit;
 }

@@ -2,6 +2,12 @@
 /**
  * @var mysqli $db
  */
+
+// jika belum login arahkan ke halaman login
+if (!isset($_SESSION['loginUser'])) {
+    header('Location: ../loginUser.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
