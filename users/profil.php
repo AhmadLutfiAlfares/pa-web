@@ -34,7 +34,7 @@ if (!isset($_SESSION['loginUser'])) {
 
 <body>
     <?php
-    include('../includes/header.php');
+    include('includes/header.php');
     ?>
 
     <div class="all-container">
