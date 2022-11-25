@@ -2,7 +2,8 @@
 /**
  * @var mysqli $db
  */
-
+// var_dump($_SESSION);
+session_start();
 // jika belum login arahkan ke halaman login
 if (!isset($_SESSION['loginUser'])) {
     header('Location: ../loginUser.php');
@@ -30,7 +31,7 @@ if (!isset($_SESSION['loginUser'])) {
 
 <body>
 <?php
-include('includes/header.php');
+include('../includes/header.php');
 ?>
 
 <div class="all-container">
