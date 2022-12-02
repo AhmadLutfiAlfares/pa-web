@@ -1,0 +1,4 @@
+{
+    "php.executable": "/opt/lampp/bin/php",
+    "php.language.level": 8.1
+}
