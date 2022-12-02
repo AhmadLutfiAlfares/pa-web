@@ -34,25 +34,25 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="/images/teknologi-informasi.png" class="d-block w-100" alt="...">
+                <img src="/images/teknologi.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5 style="color: black;">Teknologi Informasi</h5>
+                    <h5 style="color: white;">Teknologi Informasi</h5>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="/images/kesehatan-dan-farmasi.png" class="d-block w-100" alt="...">
+                <img src="/images/kesehatan.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5 style="color: black;">Kesehatan dan Farmasi</h5>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="/images/agrikultur.png" class="d-block w-100" alt="...">
+                <img src="/images/agrikultur1.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5 style="color: black;">Agrikultur</h5>
+                    <h5 style="color: white;">Agrikultur</h5>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="/images/sosial-humaniora.png" class="d-block w-100" alt="...">
+                <img src="/images/sosial-humaniora.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5 style="color: black;">Sosial Humaniora</h5>
                 </div>
