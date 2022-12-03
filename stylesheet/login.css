@@ -1,58 +1,21 @@
-.container-form {
-    margin: 40px auto;
-    background-color: #F9F2ED;
-    width: 40%;
-    padding: 15px;
-}
-
-.container-form form {
-    display: flex;
-    flex-direction: column;
-}
-
-input {
-    height: 54px;
-    padding: 10px 24px;
-    border: 0px;
-    font-family: "Work Sans";
-    font-size: 16px;
-    margin-bottom: 24px;
-}
-
-.container-form form input[type=submit] {
-    height: 50px;
-    margin-top: 20px;
+body {
+    background: #007bff;
+    background: linear-gradient(to right, #0062E6, #33AEFF);
     font-family: "Work Sans", sans-serif;
-    background-color: #3ab0ff;
-    border: none;
-    color: #F9F2ED;
-    border-radius: 10px;
-    cursor: pointer;
 }
 
-.title {
-    text-align: center;
-    font-weight: bold;
+.btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
 }
 
-@media only screen and (max-width: 900px) {
-    html, body {
-        width: 100%;
-        height: 100%;
-        overflow-x: hidden;
-    }
+.btn-google {
+    color: white !important;
+    background-color: #ea4335;
+}
 
-    .title {
-        font-size: 3vw;
-        margin-top: 15vh;
-        width: 100%;
-    }
-
-    .container-select a {
-        font-size: 4vw;
-    }
-
-    .container-form {
-        width: 80%;
-    }
+.btn-facebook {
+    color: white !important;
+    background-color: #3b5998;
 }
