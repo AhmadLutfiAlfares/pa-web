@@ -9,13 +9,13 @@
     const ctx = document.getElementById('myChart')
 
     // graphs values
-    const numOfPublished = document.getElementsByTagName('li')
+    const numOfPublished = document.getElementsByClassName('chart-value')
     const labels = [];
     const data = []
     for (let i=0;i<numOfPublished.length;i++) {
-        const json = JSON.parse(numOfPublished[i])
-        labels.push(json.published_date)
-        data.push(json.count)
+        const json = JSON.parse(numOfPublished[i].innerHTML)
+        labels.push(json['published_date'])
+        data.push(json['count'])
     }
 
     // eslint-disable-next-line no-unused-vars
