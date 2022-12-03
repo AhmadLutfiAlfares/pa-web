@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2022 at 11:48 AM
+-- Generation Time: Dec 03, 2022 at 09:06 AM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 8.0.19
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,6 +24,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `artikel`
+--
+
+CREATE TABLE `artikel` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `artikel_file` varchar(255) NOT NULL,
+  `date_upload` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `artikel`
+--
+
+INSERT INTO `artikel` (`id`, `id_user`, `title`, `artikel_file`, `date_upload`) VALUES
+(1, 1, 'kimek', '', '2022-12-03 00:00:00'),
+(2, 1, 'meki', '', '2022-12-03 00:00:00'),
+(3, 1, 'janc*k', '', '2022-12-03 00:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `bookmark`
 --
 
@@ -32,6 +55,13 @@ CREATE TABLE `bookmark` (
   `id_user` int(11) NOT NULL,
   `id_journal` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bookmark`
+--
+
+INSERT INTO `bookmark` (`id`, `id_user`, `id_journal`) VALUES
+(1, 1, 29);
 
 -- --------------------------------------------------------
 
@@ -98,8 +128,23 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `email`, `password`) VALUES
+(1, 'lutfi', 'lutfi@gmail.com', '$2y$10$Nwg26Y6g00muUztsCQEKuOqw7od1vnZlRjgCrK585GCiiFc9m3nK.'),
+(2, 'lutfi', '123@gmail.com', '$2y$10$kqFuPQSFqR5ndwBASK/l..aGKQNBb3BWa6a3StpjmVfP2jbWR4iru');
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `artikel`
+--
+ALTER TABLE `artikel`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_user` (`id_user`);
 
 --
 -- Indexes for table `bookmark`
@@ -133,10 +178,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `artikel`
+--
+ALTER TABLE `artikel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `bookmark`
 --
 ALTER TABLE `bookmark`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `journal`
@@ -154,11 +205,17 @@ ALTER TABLE `publisher`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `artikel`
+--
+ALTER TABLE `artikel`
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `bookmark`
