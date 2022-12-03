@@ -29,11 +29,10 @@ $id = $_SESSION['pub_id'];
     <link rel="stylesheet" href="/publisher/stylesheet/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/datatables.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus&family=Work+Sans&display=swap" rel="stylesheet"/>
-
-    <!-- Custom styles for this template -->
     <link href="/publisher/stylesheet/dashboard.css" rel="stylesheet">
 </head>
 <body>
@@ -50,7 +49,7 @@ $id = $_SESSION['pub_id'];
     );
     while ($row = mysqli_fetch_assoc($query)) {
         ?>
-        <li><?= json_encode($row) ?></li>
+        <li class="chart-value"><?= json_encode($row) ?></li>
         <?php
     }
     ?>
@@ -106,23 +105,23 @@ $id = $_SESSION['pub_id'];
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2" id="dashboard">Dashboard</h1>
-<!--                <div class="btn-toolbar mb-2 mb-md-0">-->
-<!--                    <div class="btn-group me-2">-->
-<!--                        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>-->
-<!--                        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>-->
-<!--                    </div>-->
-<!--                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">-->
-<!--                        <span data-feather="calendar" class="align-text-bottom"></span>-->
-<!--                        This week-->
-<!--                    </button>-->
-<!--                </div>-->
+                <!--                <div class="btn-toolbar mb-2 mb-md-0">-->
+                <!--                    <div class="btn-group me-2">-->
+                <!--                        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>-->
+                <!--                        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>-->
+                <!--                    </div>-->
+                <!--                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">-->
+                <!--                        <span data-feather="calendar" class="align-text-bottom"></span>-->
+                <!--                        This week-->
+                <!--                    </button>-->
+                <!--                </div>-->
             </div>
 
             <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
             <h2 id="jurnal-saya">Jurnal Saya</h2>
             <div class="table-responsive">
-                <table class="table table-striped table-sm">
+                <table id="example" class="table table-striped table-sm">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -199,7 +198,6 @@ $id = $_SESSION['pub_id'];
     </div>
 </div>
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
@@ -209,6 +207,12 @@ $id = $_SESSION['pub_id'];
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
         integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
         crossorigin="anonymous"></script>
+<<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/datatables.min.js"></script>
 <script src="/publisher/javascript/dashboard.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>
 </body>
 </html>
