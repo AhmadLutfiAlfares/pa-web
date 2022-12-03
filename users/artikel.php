@@ -33,7 +33,7 @@ include '../php/config.php';
 
     <div class="apply-container">
         <h1>Daftarkan Artikel</h1>
-        <p>Siapkan judul artikel kamu</p>
+        <p>Siapkan judul artikelmu</p>
         <div class="form-container">
             <form action="php/create.php" method="post" enctype="multipart/form-data">
                 <!-- judul artikel -->
@@ -43,13 +43,15 @@ include '../php/config.php';
                 </div>
                 <!-- <label for="title">Judul Artikel</label>
                 <input type="text" id="title" name="title" class="input-area"> -->
+                
                 <!-- file jurnal -->
                 <div class="mb-3">
                     <label for="file-jurnal" class="form-label">Soft File Artikel</label>
-                    <input type="file" class="form-control" name="file-jurnal">
+                    <input type="file" class="form-control" name="file-artikel">
                 </div>
                 <!-- <label for="file-jurnal">Soft File Artikel</label>
                 <input type="file" name="file-jurnal"><br><br> -->
+
                 <!-- submit -->
                 <input type="submit" name="submit" value="Apply" class="btn-submit">
             </form>
