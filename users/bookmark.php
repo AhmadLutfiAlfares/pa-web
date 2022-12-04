@@ -32,14 +32,14 @@ $idUser = $_SESSION['id_user']
 
     <div class="all-container">
 
-        <h2>Bookmark</h2>
+        <h2 class="text-dark">Bookmark</h2>
         
         <aside class="filter">
-            <h3>Filter hasil pencarian</h3>
+            <h3 class="text-dark">Filter hasil pencarian</h3>
             <div class="searching">
                 <form action="" method="get">
                     <input type="text" name="search" placeholder="Cari judul" class="search">
-                    <input type="submit" name="submit" value="cari" class="cari">
+                    <input type="submit" name="submit" value="cari" class="cari btn btn-primary text-white">
                 </form>
             </div>
         </aside>
@@ -142,7 +142,7 @@ $idUser = $_SESSION['id_user']
         </main>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="../javascript/darkmode.js"></script>
+    <script src="../javascript/darkMode.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>

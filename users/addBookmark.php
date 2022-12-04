@@ -1,6 +1,8 @@
 <?php
 
-use LDAP\Result;
+/**
+ * @var mysqli $db
+ */
 
 session_start();
 require "../php/config.php";
@@ -26,7 +28,7 @@ if (isset($idUser)) {
         echo "
             <script>
             alert('Tambahkan bookmark berhasil!');
-            document.location.href = 'browse.php';
+            document.location.href = 'jelajah.php';
             </script>";
     } else {
         echo "Tambahkan Bookmark gagal";
