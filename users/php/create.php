@@ -7,6 +7,8 @@
 session_start();
 require "../../php/config.php";
 
+$id_jounal = $_POST['jurnal'];
+
 function file_upload($title, $db, $id_artikel): void
 {
     $target_dir = "uploads/";
@@ -37,9 +39,9 @@ if (isset($_POST['submit'])) {
     $query = mysqli_query(
         $db,
         "INSERT INTO
-            artikel(title, date_upload, id_user)
+            artikel(title, id_journal, date_upload, id_user, status)
         VALUES
-            ('$title', '$current_datetime', $userId)"
+            ('$title', $id_jounal, '$current_datetime', $userId, 'pending')"
     );
 
     $artikel_id = mysqli_insert_id($db); // dapatkan id artikel yang baru ditambahkan
