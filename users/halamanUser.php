@@ -34,7 +34,7 @@
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
         </div>
         <div class="carousel-inner">
-            <a href="/users/browse.php?kategori=teknologi-informasi">
+            <a href="/users/jelajah.php?kategori=teknologi-informasi">
                 <div class="carousel-item active" data-bs-interval="5000">
                     <img src="/images/teknologi.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </a>
-            <a href="/users/browse.php?kategori=kesehatan-dan-farmasi">
+            <a href="/users/jelajah.php?kategori=kesehatan-dan-farmasi">
                 <div class="carousel-item" data-bs-interval="5000">
                     <img src="/images/kesehatan.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </a>
-            <a href="/users/browse.php?kategori=agrikultur">
+            <a href="/users/jelajah.php?kategori=agrikultur">
                 <div class="carousel-item" data-bs-interval="5000">
                     <img src="/images/agrikultur1.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </a>
-            <a href="/users/browse.php?kategori=sosial-humaniora">
+            <a href="/users/jelajah.php?kategori=sosial-humaniora">
                 <div class="carousel-item" data-bs-interval="5000">
                     <img src="/images/sosial-humaniora.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">

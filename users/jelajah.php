@@ -10,6 +10,7 @@ if (!isset($_SESSION['loginUser'])) {
     header('Location: ../loginUser.php');
     exit;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +54,18 @@ if (!isset($_SESSION['loginUser'])) {
             <ul class="search-results">
                 <?php
                 require "../php/config.php";
+
+                // pagination 
+                // deklarasi batas
+                $batas = 3;
+                $halaman = @$_GET['halaman'];
+
+                if(empty($halaman)) {
+                    $posisi = 0;
+                    $halaman = 1;
+                } else {
+                    $posisi = ($halaman-1) * $batas;
+                }
 
                 // jika memasukkan kata kunci pencarian
                 if (isset($_GET['submit'])) {
@@ -103,9 +116,11 @@ if (!isset($_SESSION['loginUser'])) {
                             journal_filename,
                             publisher.name
                     FROM journal
-                    JOIN publisher ON journal.id_publisher = publisher.id"
+                    JOIN publisher ON journal.id_publisher = publisher.id 
+                    LIMIT $posisi, $batas"
                     );
                 }
+
 
                 // untuk mengecek kalau datanya kosong
                 $cek = mysqli_num_rows($query);
@@ -114,6 +129,7 @@ if (!isset($_SESSION['loginUser'])) {
                 }
 
                 // mengecek kalau data ada
+                $i = $posisi + 1;
                 while ($row = mysqli_fetch_assoc($query)) {
                 ?>
                     <div class="card mb-3" style="max-width: 540px;">
@@ -160,6 +176,29 @@ if (!isset($_SESSION['loginUser'])) {
             </ul>
         </main>
 
+        <?php
+        // untuk menghitung total data dan pagination
+        $query2 = mysqli_query($db, "SELECT * FROM journal JOIN publisher ON journal.id_publisher = publisher.id");
+        $jumlah_data = mysqli_num_rows($query2);
+        $jumlah_halaman = ceil($jumlah_data/$batas);
+        ?>
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-end">
+                <?php
+                for($i = 1; $i <= $jumlah_halaman;$i++) {
+                    if($i != $halaman) {
+                        // echo "<a href=\"jelajah.php?halaman=$i\"></a> |";
+                        echo "<li class='page-item'><a class='page-link' href=\"jelajah.php?halaman=$i\">$i</a></li>";
+                    } else {
+                        echo "<b>$i</b>";
+                    }
+                }
+                ?>
+                
+                <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+            </ul>
+        </nav>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="../javascript/darkMode.js"></script>
