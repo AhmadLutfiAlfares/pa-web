@@ -14,7 +14,7 @@ if (!isset($_SESSION['loginPublisher'])) {
 }
 
 $id = $_SESSION['pub_id'];
-$id_artikel = $_POST['id'];
+$id_artikel = $_GET['id'];
 
 if (isset($id_artikel)) {
     $query = mysqli_query(

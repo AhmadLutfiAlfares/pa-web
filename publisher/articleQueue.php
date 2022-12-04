@@ -94,7 +94,7 @@ include('includes/header.php');
                             <a href="php/approve.php?id=<?= $row['id'] ?>">
                                 <button type="button" class="btn btn-primary btn-sm">Approve</button>
                             </a>
-                            <a href="rejectArticle.php?id=<?= $row['id'] ?>">
+                            <a href="php/reject.php?id=<?= $row['id'] ?>">
                                 <button type="button" class="btn btn-secondary btn-sm">Reject</button>
                             </a>
                         </td>
