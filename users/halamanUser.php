@@ -78,6 +78,7 @@
 
         <div class="main">
             <div class="header-content">
+                <br><br>
                 <h1>Publikasikan Artikel Anda</h1>
                 <h2>Dan Temukan Jurnal yang Tepat <span id="sekarang">Sekarang</span></h2>
             </div>
