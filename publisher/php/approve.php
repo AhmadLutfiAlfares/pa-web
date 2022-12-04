@@ -4,7 +4,7 @@
  * @var mysqli $db
  */
 
-require "../php/config.php";
+include "../../php/config.php";
 session_start();
 
 // jika belum login arahkan ke halaman login
