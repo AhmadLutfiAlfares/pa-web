@@ -7,10 +7,12 @@
 }
 
 .main-content {
-  margin-top: 20vh;
-  overflow-x: auto;
-  overflow-y: hidden;
+    /* height: 100%; */
+    margin-top: 100px;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
+
 
 .section-title {
   border-bottom: 2px solid #dee7ec;
@@ -66,7 +68,7 @@ button {
 }
 
 .contact-form input {
-  width: 100%;
+  width: 400px;
   margin-top: 10px;
   margin-bottom: 30px;
   padding: 20px;
@@ -76,7 +78,7 @@ button {
 }
 
 .contact-form textarea {
-  width: 100%;
+  width: 400px;
   margin-top: 10px;
   margin-bottom: 30px;
   padding: 20px;
