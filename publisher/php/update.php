@@ -60,7 +60,7 @@ if (isset($_POST['submit'])) {
         file_upload($title, $db, $id, 'file-jurnal');
     }
 
-    header("Location:../myJournal.php");
+    header("Location:../index.php");
 } else {
     echo "Update jurnal gagal";
 }

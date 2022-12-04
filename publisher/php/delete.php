@@ -14,7 +14,7 @@ if (isset($journalId)) {
     );
 
     if ($query) {
-        header("Location:../myJournal.php");
+        header("Location:../index.php");
     } else {
         echo "Delete gagal";
     }
