@@ -11,7 +11,7 @@
 
             // jika sudah login tampilin link keluar begitu juga sebaliknya
             if (isset($_SESSION['loginUser'])) {
-                echo "<li><a href='/users/test.php'>Jelajahi</a></li>";
+                echo "<li><a href='/users/jelajah.php'>Jelajahi</a></li>";
                 echo "<li><a href='bookmark.php'>Bookmark</a></li>";
                 echo "<li><a href='artikel.php'>Upload Artikel</a></li>";
                 echo "<li>Dark mode: <span class='change'>OFF</span></li>";
