@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Des 2022 pada 13.41
+-- Waktu pembuatan: 04 Des 2022 pada 14.33
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.1.12
 
@@ -32,10 +32,17 @@ CREATE TABLE `artikel` (
   `id_user` int(11) NOT NULL,
   `id_journal` int(10) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
-  `artikel_file` varchar(255) NOT NULL,
+  `artikel_file` varchar(255) DEFAULT NULL,
   `date_upload` datetime NOT NULL,
   `status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `artikel`
+--
+
+INSERT INTO `artikel` (`id`, `id_user`, `id_journal`, `title`, `artikel_file`, `date_upload`, `status`) VALUES
+(1, 1, 29, 'JFSAOFOASU UUoasduau', 'uploads/JFSAOFOASU_UUoasduau_file-artikel.pde', '2022-12-04 14:31:12', 'pending');
 
 -- --------------------------------------------------------
 
@@ -114,6 +121,13 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `email`, `password`) VALUES
+(1, 'zeerafle', 'vsefareez@gmail.com', '$2y$10$zrNGuFdqJyhB5bTfd.9RSOwn.LF/pZg7Crpx9hvFZkC5SWPjvazxi');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -121,6 +135,7 @@ CREATE TABLE `user` (
 -- Indeks untuk tabel `artikel`
 --
 ALTER TABLE `artikel`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `foreign_key_id_journal` (`id_journal`);
 
 --
@@ -155,6 +170,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `artikel`
+--
+ALTER TABLE `artikel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `bookmark`
 --
 ALTER TABLE `bookmark`
@@ -176,7 +197,7 @@ ALTER TABLE `publisher`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
