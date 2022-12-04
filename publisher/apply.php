@@ -37,14 +37,14 @@ if (!isset($_SESSION['loginPublisher'])) {
         <div class="form-container">
             <form action="php/create.php" method="post" enctype="multipart/form-data">
                 <!-- judul artikel -->
-                <label for="title">Judul Jurnal</label>
-                <input type="text" id="title" name="title" class="input-area">
+                <label for="title" class="form-label">Judul Jurnal</label>
+                <input type="text" id="title" name="title" class="input-area form-control">
                 <!-- tanggal terbit -->
-                <label for="published-date">Tahun Terbit</label>
-                <input type="number" id="published-date" name="published-date" class="input-area">
+                <label for="published-date" class="form-label">Tahun Terbit</label>
+                <input type="number" id="published-date" name="published-date" class="input-area form-control">
                 <!-- kategori -->
-                <label for="kategori">Bidang Riset</label>
-                <select id="kategori" name="kategori" class="input-dropdown">
+                <label for="kategori" class="form-label">Bidang Riset</label>
+                <select id="kategori" name="kategori" class="input-dropdown form-select">
                     <option value="Teknologi Informasi">Teknologi Informasi</option>
                     <option value="Agrikultur">Agrikultur</option>
                     <option value="Kesehatan dan Farmasi">Kesehatan dan Farmasi</option>
@@ -52,16 +52,16 @@ if (!isset($_SESSION['loginPublisher'])) {
                     <option value="Lainnnya">Lainnya</option>
                 </select>
                 <!-- issn -->
-                <label for="issn">ISSN</label>
-                <input type="text" id="issn" name="issn" class="input-area">
+                <label for="issn" class="form-label">ISSN</label>
+                <input type="text" id="issn" name="issn" class="input-area form-control">
                 <!-- cover jurnal -->
-                <label for="cover">Cover Jurnal</label>
-                <input type="file" id="cover" name="cover"><br><br>
+                <label for="cover" class="form-label">Cover Jurnal</label>
+                <input type="file" id="cover" name="cover" class="form-control"><br><br>
                 <!-- file jurnal -->
-                <label for="file-jurnal">Soft File Jurnal</label>
-                <input type="file" name="file-jurnal"><br><br>
+                <label for="file-jurnal" class="form-label">Soft File Jurnal</label>
+                <input type="file" name="file-jurnal" class="form-control"><br><br>
                 <!-- submit -->
-                <input type="submit" name="submit" value="Apply" class="btn-submit">
+                <input type="submit" name="submit" value="Apply" class="btn-submit btn btn-primary">
             </form>
         </div>
     </div>
