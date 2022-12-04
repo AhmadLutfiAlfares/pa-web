@@ -80,7 +80,7 @@ include('includes/header.php');
                     <h5 class="card-title text-center mb-5 fw-light fs-5">Login Penerbit</h5>
                     <form action="" method="post">
                         <div class="form-floating mb-3">
-                            <input name="email-username" type="email" class="form-control" id="floatingInput"
+                            <input name="email-username" type="text" class="form-control" id="floatingInput"
                                    placeholder="name@example.com">
                             <label for="floatingInput">Email atau username</label>
                         </div>
