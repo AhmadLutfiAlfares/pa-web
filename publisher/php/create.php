@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
         file_upload($title, $db, $journal_id, "file-jurnal");
     }
 
-    header("Location:../myJournal.php");
+    header("Location:/publisher/index.php");
 } else {
     echo "Tambah data publisher error";
 }
