@@ -25,7 +25,7 @@
     include('includes/header.php');
     ?>
 
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -33,30 +33,38 @@
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="/images/teknologi.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5 style="color: white;">Teknologi Informasi</h5>
+            <a href="/users/browse.php?kategori=teknologi-informasi">
+                <div class="carousel-item active" data-bs-interval="5000">
+                    <img src="/images/teknologi.jpg" class="d-block w-100" alt="..." >
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 style="color: white;">Teknologi Informasi</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <img src="/images/kesehatan.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5 style="color: black;">Kesehatan dan Farmasi</h5>
+            </a>
+            <a href="/users/browse.php?kategori=kesehatan-dan-farmasi">
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="/images/kesehatan.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 style="color: black;">Kesehatan dan Farmasi</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <img src="/images/agrikultur1.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5 style="color: white;">Agrikultur</h5>
+            </a>
+            <a href="/users/browse.php?kategori=agrikultur">
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="/images/agrikultur1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 style="color: white;">Agrikultur</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <img src="/images/sosial-humaniora.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5 style="color: black;">Sosial Humaniora</h5>
+            </a>
+            <a href="/users/browse.php?kategori=sosial-humaniora">
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="/images/sosial-humaniora.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 style="color: black;">Sosial Humaniora</h5>
+                    </div>
                 </div>
-            </div>
+            </a>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
@@ -70,9 +78,9 @@
         <div class="main">
             <div class="header-content">
                 <h1>Publikasikan Artikel Anda</h1>
-                <h2>Temukan Jurnal yang Tepat <span id="sekarang">Sekarang</span></h2>
+                <h2>Dan Temukan Jurnal yang Tepat <span id="sekarang">Sekarang</span></h2>
             </div>
-            <div class="main-content">
+            <!-- <div class="main-content">
                 <div class="section-title">
                     <h3>Kategori</h3>
                     <p id="show-more">Lebih banyak</p>
@@ -103,7 +111,7 @@
                         </div>
                     </a>
                 </div>
-            </div>
+            </div> -->
 
             <form class="contact-form" name="contact" action="#" onsubmit="validateForm()">
                 <h3 class="section-title">Hubungi Kami</h3>
